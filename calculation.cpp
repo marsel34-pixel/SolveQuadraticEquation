@@ -22,7 +22,7 @@ int solveQuadraticEquation(double a, double b, double c, double *x1, double *x2)
             *x1 = 0;
             return solveLinearEquation(a, b, x2) + 1;
         }
-        return solveQuadraticEquationWithDiscriminant(a,b,c,x1,x2); //fixme
+        return solveQuadraticEquationWithDiscriminant(a, b, c, x1, x2);
      }
      else
      {
