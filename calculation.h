@@ -11,4 +11,6 @@ bool isZero(double num);
 
 int solveLinearEquation(double b, double c, double *x);
 
+bool doubleComparsion(double compare1, double compare2);
+
 #endif

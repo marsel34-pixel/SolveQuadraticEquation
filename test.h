@@ -8,10 +8,10 @@ struct testUnit
     double x1, x2;
 };
 
-bool doubleComparsion(double compare1, double compare2);
+void RunAllTests();
 
-void ErrorMesage(double a, double b, double c, int nRootsRef, double x1Ref, double x2Ref, int nRoots, double x1, double x2);
+void ErrorMesage(testUnit TestMat, int nRoots, double x1, double x2);
 
-void RunTest(struct testUnit TestMat);
+int RunTest(struct testUnit TestMat);
 
 #endif
