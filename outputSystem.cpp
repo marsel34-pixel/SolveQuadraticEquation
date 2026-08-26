@@ -49,8 +49,8 @@ void plotQuadratics(double a, double b, double c, double x1, double x2)
         PlotArray[yCoord][xCoord] = '#'; 
     }
     
-    DrawNumberOnPlot("x=", x1, roundInBounds(x1 + ZeroX,X_SIZE),ZeroY+2);
-    DrawNumberOnPlot("x=", x2, roundInBounds(x2 + ZeroX,X_SIZE),ZeroY-2);
+    DrawNumberOnPlot("x=", x1, roundInBounds(x1 + ZeroX,X_SIZE), ZeroY + 2); //const
+    DrawNumberOnPlot("x=", x2, roundInBounds(x2 + ZeroX,X_SIZE), ZeroY - 2);
 
     drawGraphicFromArray();
 }

@@ -10,6 +10,7 @@
 #include "outputSystem.h"
 
 const int cartMinNumber = 1000000;
+const int waitingForLetterTime = 30;
 
 void checkTokens(int *tokens)
 {
@@ -21,7 +22,7 @@ void checkTokens(int *tokens)
 
     if (*tokens < 0)
     {
-        printf("You do not have enough tokens for this request, please enter your card details\n");
+        AIWriteText("You do not have enough tokens for this request, please enter your card details\n");
 
         int number = 0;
 
@@ -33,6 +34,7 @@ void checkTokens(int *tokens)
         if (number < cartMinNumber)
         {
             printf("you stupid\n");
+            assert(0);
         }
 
         *tokens += 20 + rand() % 240;
@@ -41,30 +43,32 @@ void checkTokens(int *tokens)
 
 void aiInput() 
 {
-    int tokens = 20;
+    int tokens = 200;
 
     checkTokens(&tokens);
 
-    printf("Ask something\n");
+    AIWriteText("Ask something\n");
     scanf(" ");
     clearInput();
 
     checkTokens(&tokens);
-    printf("Solving a quadratic equation means finding its roots. To do that, I need to know the equation, so please write it down\n");
-
+    AIWriteText("Solving a quadratic equation means finding its roots. To do that, I need to know the equation, so please write it down\n");
+    //
     double a = NAN, b = NAN, c = NAN;
     double x1 = NAN, x2 = NAN;
-    
+
+    clearInput();
+
     while (readCoeficients(&a, &b, &c))
     {
         checkTokens(&tokens);
-        printf("That is why I cannot understand you. Please try again and be more careful\n");
+        AIWriteText("That is why I cannot understand you. Please try again and be more careful\n");
     }
     int nRoots = solveQuadraticEquation(a, b, c, &x1, &x2);
 
     printRoots(nRoots, x1, x2);
     checkTokens(&tokens);
-    printf("Do you have any more questions?\n");
+    AIWriteText("Do you have any more questions?\n");
 
     infinityDontUnderstand(&tokens);
 }
@@ -78,10 +82,27 @@ void infinityDontUnderstand(int *tokens)
         scanf(" ");
         clearInput();
         checkTokens(tokens);
-        printf("i cant understand you\n");
+        AIWriteText("i cant understand you\n");
     } 
 }
 
+void AIWriteText(const char *Text)
+{
+    assert(Text);
+    
+    for (int i = 0; ; i++)
+    {
+        putchar(Text[i]);
+
+        Sleep(waitingForLetterTime);
+
+        if (Text[i] == '\n' || Text[i] == '\0')
+        {
+            putchar('\n');
+            break;
+        }
+    }
+}
 void basicInput()
 {
     bool keepSolving = 1;

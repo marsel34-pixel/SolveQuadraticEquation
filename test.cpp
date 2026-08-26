@@ -6,7 +6,7 @@
 
 testUnit TestArrayFromFile[MaxTestLen] = {};
 
-size_t ReadTestsUnitFromFile(testUnit *TestArray)
+ssize_t ReadTestsUnitFromFile(testUnit *TestArray)
 {
     FILE *file = fopen("test.txt", "r");
 
@@ -15,34 +15,34 @@ size_t ReadTestsUnitFromFile(testUnit *TestArray)
     if (file == NULL)
     {
         printf("Read error: cant open file\n");
-        return 0;
+        return -1;
     }
 
     for (int i = 0; i < MaxTestLen; i++)
     {
-        int sucsesRead = fscanf(file, "%lg %lg %lg %d %lg %lg", &TestArray[i].a, &TestArray[i].b, &TestArray[i].c, 
+        int successRead = fscanf(file, "%lg %lg %lg %d %lg %lg", &TestArray[i].a, &TestArray[i].b, &TestArray[i].c, 
                                                                 &TestArray[i].nRoots, &TestArray[i].x1, &TestArray[i].x2);
-        if(sucsesRead < 6)
+        if(successRead < 6)
         {
-            if (sucsesRead == -1)
+            if (successRead == -1)
             {
                 sizeTestArray = i;
                 break;
             }
-            sizeTestArray = 0;
+            sizeTestArray = MaxTestLen + 1;
             printf("Read error: wrong input format\n");
             break;
         }
     }
 
-    fclose(file);
+    fclose(file); //FIXME
 
     return sizeTestArray;
 }
 
 void RunAllTestsFromArray(testUnit *TestMat, size_t TestSize)
 {
-
+    //assert
     int NumWrongTest = 0;
 
     for (size_t i = 0; i < TestSize; i++)
@@ -59,7 +59,7 @@ void RunAllTestsFromArray(testUnit *TestMat, size_t TestSize)
     }
     else
     {
-        printf("all test was complite\n\n");
+        printf("all test were complited\n\n");
     }
 }
 
@@ -95,14 +95,15 @@ int RunAllAvaiaibleTests()
                                      { 1, 0,  0,   1,          0, NAN        } };
         
     size_t testArraySize = ReadTestsUnitFromFile(TestArrayFromFile);
-
-    if (testArraySize > 0)
+    //printf("12");
+    if (testArraySize != MaxTestLen + 1)
     {
         printf("Running tests from file\n");
         RunAllTestsFromArray(TestArrayFromFile, testArraySize);
     }
     else
     {
+        
         return 1;
     }
 

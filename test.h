@@ -13,7 +13,7 @@ struct testUnit
     double x1, x2;
 };
 
-size_t ReadTestsUnitFromFile(testUnit *TestArray);
+ssize_t ReadTestsUnitFromFile(testUnit *TestArray);
 
 void RunAllTestsFromArray(testUnit *TestMat, size_t TestSize);
 
