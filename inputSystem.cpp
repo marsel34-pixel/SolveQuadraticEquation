@@ -1,177 +1,194 @@
 #include <stdio.h>
 #include <assert.h>
 #include <cctype>
-
+#include <math.h>
 #include "inputSystem.h"
 
 //---------------------------------------------------------------
-void readCoofs(double *a, double *b, double *c)
+enum LeftOrRight
 {
+    Left = 0,
+    Right = 1
+};
+
+void readCoefs(double *a, double *b, double *c)
+{
+    assert(a);
+    assert(b);
+    assert(c);
 
     printf("Enter a:");
-    readSingleCooficient(a);
+    readSingleCoeficient(a);
 
     printf("Enter b:");
-    readSingleCooficient(b);
+    readSingleCoeficient(b);
 
     printf("Enter c:");
-    readSingleCooficient(c);
+    readSingleCoeficient(c);
 }
 
 //---------------------------------------------------------------
 
-int checkLefterN(char *str, int startN, bool *termFromLeft, int *findX, double *buffCoof)
+int findPowerX(char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool side)
 {
-    bool x_wasFind = 0;
-    for (int j = startN - 1; j > -1; j--)
+    assert(EquationStr);
+    assert(termWasFound);
+    assert(foundPowerX);
+    assert(buffCoef);
+
+    bool xWasFound = 0;
+
+    for (int j = (side == Left) ? StartN - 1 : endN; j > -1 && j < MaxInputLen; (side == Left) ? j-- : j++)
     {
-        if (str[j] == '*' && !*termFromLeft)
+        assert(0 <= j && j < MaxInputLen);
+
+        if (EquationStr[j] == '*' && !*termWasFound)
         {
-            *termFromLeft = 1;
+            *termWasFound = 1;
             continue;
         }
-        else if (str[j] == '+')
+        else if (EquationStr[j] == '+' || EquationStr[j] == '-')
         {
-            break;
-        }
-        else if (str[j] == '-')
-        {
-            *buffCoof = -*buffCoof;
+            ((side == Left) && EquationStr[j] == '-') ? *buffCoef *= -1 : 0;
             break;
         }
 
-        if (*termFromLeft && !x_wasFind)
+        if (*termWasFound && !xWasFound)
         {
-            if (str[j] == '+' || str[j] == '-' || str[j] == '*')
+            if ((side == Left) ? checkLeftForPower(EquationStr, &j, foundPowerX, &xWasFound) : checkRightForPower(EquationStr, &j, foundPowerX, &xWasFound))
             {
-                printf("* without X\n");
                 return 1;
             }
-            else if (j > 1 && str[j] == '2' && str[j - 1] == '^' && str[j - 2] == 'x')
-            {
-                *findX = 2;
-                x_wasFind = 1;
-                j -= 2;
-                continue;
-            }
-            else if (str[j] == 'x')
-            {
-                *findX = 1;
-                x_wasFind = 1;
-                continue;
-            }
-            else if (isdigit(str[j]))
-            {
-                printf("You cannot multiply numbers\n");
-                return 1;
-            }
+            continue;
         }
-        if (x_wasFind && (str[j] == 'x' || isdigit(str[j]) || str[j] == '^'))
+        if (xWasFound && (EquationStr[j] == 'x' || isdigit(EquationStr[j]) || EquationStr[j] == '^'))
         {
             printf("No sign between term\n");
             return 1;
         }
     }
+
+    if (*termWasFound && foundPowerX == 0)
+    {
+        printf("Multiply without X\n");
+        return 1;
+    }
+
     return 0;
 }
 
-//---------------------------------------------------
+//-----------------------------------------------------------------------------
 
-int checkRighterN(char *str, int endN, bool *termFromRight, int *findX)
+int checkLeftForPower(char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound)
 {
-    bool x_wasFind = 0;
+    assert(EquationStr);
+    assert(strIdx);
+    assert(foundPowerX);
+    assert(xWasFound);
 
-    for (int j = endN; j < lenStr; j++)
+    if (EquationStr[*strIdx] == '+' || EquationStr[*strIdx] == '-' || EquationStr[*strIdx] == '*')
     {
-        if (str[j] == '*' && !*termFromRight)
-        {
-            *termFromRight = 1;
-            continue;
-        }
-        else if (str[j] == '+' || str[j] == '-')
-        {
-            break;
-        }
+        printf("* without X\n");
+        return 1;
+    }
+    else if (*strIdx > 1 && EquationStr[*strIdx] == '2' && EquationStr[*strIdx - 1] == '^' && EquationStr[*strIdx - 2] == 'x')
+    {
+        *foundPowerX = 2;
+        *xWasFound = 1;
+        *strIdx -= 2;
+        return 0;
+    }
+    else if (EquationStr[*strIdx] == 'x')
+    {
+        *foundPowerX = 1;
+        *xWasFound = 1;
+        return 0;
+    }
+    else if (isdigit(EquationStr[*strIdx]))
+    {
+        printf("You cannot multiply numbers\n");
+        return 1;
+    }
 
-        if (termFromRight && !x_wasFind)
+    return 0;
+}
+
+//--------------------------------------------------------------------------
+
+int checkRightForPower(char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound)
+{
+    assert(EquationStr);
+    assert(strIdx);
+    assert(foundPowerX);
+    assert(xWasFound);
+
+    if (EquationStr[*strIdx] == '+' || EquationStr[*strIdx] == '-' || EquationStr[*strIdx] == '*')
+    {
+        printf("Multiply without X\n");
+        return 1;
+    }
+    else if (EquationStr[*strIdx] == 'x')
+    {
+        if (EquationStr[*strIdx + 1] == '^' && EquationStr[*strIdx + 2] == '2')
         {
-            if (str[j] == '+' || str[j] == '-' || str[j] == '*')
-            {
-                printf("* without X\n");
-                return 1;
-            }
-            else if (str[j] == 'x')
-            {
-                if (str[j + 1] == '^' && str[j + 2] == '2')
-                {
-                    *findX = 2;
-                    x_wasFind = 1;
-                    j += 2;
-                    continue;
-                }
-                else if (str[j + 1] != '^')
-                {
-                    *findX = 1;
-                    x_wasFind = 1;
-                    continue;
-                }
-                else
-                {
-                    printf("You cannot use powers other than 2\n");
-                    return 1;
-                }
-            }
-            else if (isdigit(str[j]))
-            {
-                printf("you cant multiply numbers\n");
-                return 1;
-            }
+            *foundPowerX = 2;
+            *xWasFound = 1;
+            *strIdx += 2;
+            return 0;
         }
-        if (x_wasFind && (str[j] == 'x' || isdigit(str[j]) || str[j] == '^'))
+        else if (EquationStr[*strIdx + 1] != '^')
         {
-            printf("No sign between term\n");
+            *foundPowerX = 1;
+            *xWasFound = 1;
+            return 0;
+        }
+        else if (isdigit(EquationStr[*strIdx]))
+        {
+            printf("You cannot use powers other than 2\n");
             return 1;
         }
+    }
+    else if (isdigit(EquationStr[*strIdx]))
+    {
+        printf("You cannot multiply numbers\n");
+        return 1;
     }
     return 0;
 }
 
 //--------------------------------------------------------------------------
 
-int setCoof(char *str, int startN, int endN, double *buffCoof, double *a, double *b, double *c)
+int setCoef(char *EquationStr, int startN, int endN, double *buffCoof, double *a, double *b, double *c)
 {
+    assert(EquationStr);
+    assert(buffCoof);
+    assert(a);
+    assert(b);
+    assert(c);
+
     bool termFromLeft = 0;
     bool termFromRight = 0;
-    int findX = 0;
+    int foundPowerX = 0;
 
-    if (checkLefterN(str, startN, &termFromLeft, &findX, buffCoof))
-        return 1;
-
-    if (termFromLeft && findX == 0)
-    {
-        printf("* without X\n");
-        return 1;
-    }
-    if (checkRitghterN(str, endN, &termFromRight, &findX))
+    if (findPowerX(EquationStr, startN, endN, &termFromLeft, &foundPowerX, buffCoof, Left))
         return 1;
 
-    if (termFromRight && findX == 0)
-    {
-        printf("* without X\n");
+    if (findPowerX(EquationStr, startN, endN, &termFromRight, &foundPowerX, buffCoof, Right))
         return 1;
-    }
+    
     if (termFromLeft && termFromRight)
     {
-        printf("too many *\n");
+        printf("too many multiply\n");
         return 1;
     }
+    
     if (!termFromLeft && !termFromRight)
     {
         *c += *buffCoof;
     }
     else
     {
-        if (findX == 1)
+        if (foundPowerX == 1)
         {
             *b += *buffCoof;
         }
@@ -185,38 +202,44 @@ int setCoof(char *str, int startN, int endN, double *buffCoof, double *a, double
 
 //--------------------------------------------------------------
 
-int findCoofsFromStr(char *str, double *a, double *b, double *c)
+int findCoefsFromStr(char *EquationStr, double *a, double *b, double *c)
 {
-    double buffCoof = 0;
+    assert(EquationStr);
+    assert(a);
+    assert(b);
+    assert(c);
+
+    double buffCoof = NAN; 
     char *endPtr = NULL;
 
     int startN = 0;
     int endN = 0;
 
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < MaxInputLen; i++)
     {
-        if (str[i] == ' ' || str[i] == '+' || str[i] == '-' || str[i] == 'x' || str[i] == '^' || str[i] == '*' || str[i] == '.')
+        assert(0 <= i && i < MaxInputLen);
+        
+        if (EquationStr[i] == ' ' || EquationStr[i] == '+' || EquationStr[i] == '-' || EquationStr[i] == 'x' || EquationStr[i] == '^' || 
+            EquationStr[i] == '*' || EquationStr[i] == '.')
         {
             continue;
         }
-        else if (i > 1 && str[i] == '2' && str[i - 1] == '^')
+        else if (i > 1 && EquationStr[i] == '2' && EquationStr[i - 1] == '^')
         {
             continue;
         }
-        else if (isdigit(str[i]))
+        else if (isdigit(EquationStr[i]))
         {
-            buffCoof = strtod(str + i, &endPtr);
+            buffCoof = strtod(EquationStr + i, &endPtr);
             startN = i;
-            // printf("%d",i);
-            i = (int)(endPtr - str);
-            // printf("%d",i);
+            i = (int)(endPtr - EquationStr);
             endN = i;
-            if (setCoof(str, startN, endN, &buffCoof, a, b, c))
+            if (setCoef(EquationStr, startN, endN, &buffCoof, a, b, c))
             {
                 return 1;
             }
         }
-        else if (str[i] == '\n' || str[i] == '\0')
+        else if (EquationStr[i] == '\n' || EquationStr[i] == '\0')
         {
             break;
         }
@@ -231,23 +254,27 @@ int findCoofsFromStr(char *str, double *a, double *b, double *c)
 
 //-------------------------------------------------------
 
-int readCooficients(double *a, double *b, double *c)
+int readCoeficients(double *a, double *b, double *c)
 {
+    assert(a);
+    assert(b);
+    assert(c);
+
     *a = 0;
     *b = 0;
     *c = 0;
-    
-    char str[lenStr] = {};
+
+    char EquationStr[MaxInputLen] = {};
 
     printf("Enter equation\n");
-    fgets(str, lenStr, stdin); // FIXME
+    fgets(EquationStr, MaxInputLen, stdin);
 
-    return findCoofsFromStr(str, a, b, c);
+    return findCoefsFromStr(EquationStr, a, b, c);
 }
 
 //---------------------------------------------------------------
 
-void readSingleCooficient(double *a)
+void readSingleCoeficient(double *a)
 {
     assert(a);
 
@@ -275,8 +302,10 @@ void readSingleCooficient(double *a)
 
 //---------------------------------------------------------------
 
-bool askForSomething(char *text)
+bool askAboutChoise(const char *text)
 {
+    assert(text);
+    
     char inputLetter = 0;
 
     printf("%s\n", text);

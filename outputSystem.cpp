@@ -1,28 +1,32 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
+
 #include "outputSystem.h"
 #include "calculation.h"
 
-int mass[Y_SIZE][X_SIZE] = {};
+char PlotArray[Y_SIZE][X_SIZE] = {};
+const int NumLen = 100;
+const double step = 0.01;
 
 void printRoots(int nRoots, double x1, double x2)
 {
     switch (nRoots)
     {
-    case 0:
+    case NoRoots:
         printf("No roots\n");
         break;
 
-    case 1:
-        printf("x = %lg\n", x1);
+    case OneRoot:
+        printf("One root x = %lg\n", x1);
         break;
 
-    case 2:
-        printf("x1 = %lg, x2 = %lg\n", x1, x2); // enum?
+    case TwoRoots:
+        printf("Two roots x1 = %lg, x2 = %lg\n", x1, x2); 
         break;
 
-    case INFINIT:
+    case InfRoots:
         printf("any number\n");
         break;
 
@@ -31,40 +35,28 @@ void printRoots(int nRoots, double x1, double x2)
     }
 }
 
-void drawPenis(double a, double b, double c)
+void plotQuadratics(double a, double b, double c, double x1, double x2)
 {
-    for (double i = 0; i < X_SIZE; i += 0.01)
-    {
-        mass[org(i, X_SIZE)][org(a * (i - ZeroX) * (i - ZeroX) + b * (i - ZeroX) + c + ZeroY, Y_SIZE)] = 1;
-    }
-    double x1 = NAN, x2 = NAN;
-    solveQuadraticEquation(a, b, c, &x1, &x2);
+    plotInit();
 
-    char buffer[100];
-    int len1 = 0;
-    int len2 = 0;
-    if(!isnan(x1))
+    int xCoord = 0;
+    int yCoord = 0;
+
+    for (double i = 0; i < X_SIZE; i += step)
     {
-        len1 = snprintf(buffer, sizeof(buffer), "%lg", x1);
+        xCoord = roundInBounds(i, X_SIZE);
+        yCoord = roundInBounds(a * (i - ZeroX) * (i - ZeroX) + b * (i - ZeroX) + c + ZeroY, Y_SIZE);
+        PlotArray[yCoord][xCoord] = '#'; 
     }
     
-    if(!isnan(x2))
-    {
-        len2 = snprintf(buffer, sizeof(buffer), "%lg", x2);
-    }
+    DrawNumberOnPlot("x=", x1, roundInBounds(x1 + ZeroX,X_SIZE),ZeroY+2);
+    DrawNumberOnPlot("x=", x2, roundInBounds(x2 + ZeroX,X_SIZE),ZeroY-2);
 
-    drawGraphicFromMass(x1,x2,len1,len2);
-
-    for (int y = 0; y < Y_SIZE; y++)
-    {
-        for (int x = 0; x < X_SIZE; x++)
-        {
-            mass[y][x] = 0;
-        }
-    }
+    drawGraphicFromArray();
 }
 
-int org(double x, int board)//ebal
+
+int roundInBounds(double x, int board) 
 {
     if (x > 0 && x < board)
     {
@@ -73,63 +65,54 @@ int org(double x, int board)//ebal
     return 0;
 }
 
-
-void drawNumbers(int *x, int *y, double x1, int len, int up)
+void DrawNumberOnPlot(const char *TextBeforeNumber, double NumberValue, int x, int y)
 {
-    len += 2;
-    if (!isnan(x1) && (*y == (ZeroY + up) && org(x1 + ZeroX - len / 2, X_SIZE) == *x))
+    assert(TextBeforeNumber);
+
+    char buffer[NumLen] = {};
+
+    if (!isnan(NumberValue))
     {
-        *x += printf("x=%lg", x1);
+        int lenTextToDraw = snprintf(buffer, sizeof(buffer), "%s%lg", TextBeforeNumber, NumberValue);
+        int indexDrawnLetters = 0; 
+
+        for (int i = x - lenTextToDraw / 2; i < X_SIZE && buffer[indexDrawnLetters] != '\0'; i++) 
+        {
+            PlotArray[y][i] = buffer[indexDrawnLetters];
+            indexDrawnLetters++;
+        }
     }
 }
 
-void drawGraphicFromMass(double x1, double x2, int len1, int len2)
+void drawGraphicFromArray()
 {
     for (int y = Y_SIZE; y > 0; y--)
     {
         for (int x = 0; x < X_SIZE; x++)
         {
-            drawNumbers(&x, &y, x1, len1, 2);
-            drawNumbers(&x, &y, x2, len2, -2);
-            if (mass[x][y])
-            {
-                printf("#");
-            }
-            else if (x == ZeroX)
-            {
-                if (y == 0 || y == Y_SIZE-1)
-                {
-                    printf("0");
-                }
-                else if (y == ZeroY+1)
-                {
-                    printf("1");
-                }
-                else
-                {
-                    printf("|");
-                }
-            }
-            else if (y == ZeroY)
-            {
-                if (x == 0 || x == X_SIZE-1)
-                {
-                    printf("0");
-                }
-                else if (x == ZeroX + 1)
-                {
-                    printf("1");
-                }
-                else
-                {
-                    printf("_");
-                }
-            }
-            else
-            {
-                printf(" ");
-            }
+           printf("%c", PlotArray[y][x]);
         }
         printf("\n");
     }
+}
+
+void plotInit()
+{
+    for (int y = 0; y < Y_SIZE; y++)  
+    {
+        for (int x = 0; x < X_SIZE; x++)
+        {
+           PlotArray[y][x] = ' ';
+        }
+    }
+
+    for (int i = 0; i < X_SIZE; i++)
+    {
+        PlotArray[ZeroY][i] = '_';
+    }
+
+    for (int i = 0; i < Y_SIZE; i++)
+    {
+        PlotArray[i][ZeroX] = '|';
+    } 
 }

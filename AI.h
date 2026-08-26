@@ -2,7 +2,11 @@
 #define AI_H
 
 void checkTokens(int *tokens);
-void WithoutAI();
+
+void infinityDontUnderstand(int *tokens);
+
+void basicInput();
+
 void aiInput();
 
 #endif

@@ -1,22 +1,25 @@
 #ifndef INPUT_SYSTEM_H
 #define INPUT_SYSTEM_H
 
-const int lenStr = 256;
-void readSingleCooficient(double *a);
+const int MaxInputLen = 256;
 
-int checkLefterN(char *str, int startN, bool *termFromLeft, int *findX, double *buffCoof);
+void readSingleCoeficient(double *a);
 
-int checkRitghterN(char *str, int endN, bool *termFromRight, int *findX);
+int checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
 
-int setCoof(char *str, int startN, int endN, double *buffCoof, double *a, double *b, double *c);
+int findPowerX(char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool Left);
 
-int findCoofsFromStr(char *str, double *a, double *b, double *c);
+int checkRightForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
 
-void readCoofs(double *a, double *b, double *c);
+int setCoef(char *EquationStr, int startN, int endN, double *buffCoof, double *a, double *b, double *c);
 
-int readCooficients(double *a, double *b, double *c);
+int findCoefsFromStr(char *EquationStr, double *a, double *b, double *c);
 
-bool askForSomething(char *text);
+void readCoefs(double *a, double *b, double *c);
+
+int readCoeficients(double *a, double *b, double *c);
+
+bool askAboutChoise(const char *text);
 
 void clearInput();
 
