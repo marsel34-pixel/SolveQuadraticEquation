@@ -254,7 +254,7 @@ int findCoefsFromStr(char *EquationStr, double *a, double *b, double *c)
 
 //-------------------------------------------------------
 
-int readCoeficients(double *a, double *b, double *c)
+int readCoeficientsFromEquation(double *a, double *b, double *c)
 {
     assert(a);
     assert(b);

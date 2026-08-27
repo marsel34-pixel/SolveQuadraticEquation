@@ -1,0 +1,127 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF7F27C54E4 (64-bit), Flags: Cmdre0, Thread: 0x649C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7F2756999 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF7F275E619 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FF7F2760E07 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: _gnu_exception_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:255
+# 3 0x00007FF83A791D1F in C:\Windows\System32\ucrtbase.dll: _C_specific_handler()
+# 4 0x00007FF83D504ABF in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FF83D3E5E97 in C:\Windows\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FF83D5043FE in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF7F2752BF9 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: solveQuadraticEquationWithDiscriminant() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/calculation.cpp:63
+# 8 0x00007FF7F275333B in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: one_run_test() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/marcel_test.cpp:11
+# 9 0x00007FF7F27535D6 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: run_all_tests() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/marcel_test.cpp:43
+#10 0x00007FF7F277131E in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: main() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/main.cpp:20
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\zakir\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 18:03:25, GNU g++ 15.2.0, std=201703L, MinGW-W64 Runtime 14.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Aug 26 2026 18:03:39
+
+Run file:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe
+Directory:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF60A753BA4 (64-bit), Flags: Cmdre0, Thread: 0x2DB0 (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60A6A2739 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF60A6A9099 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FF60A6AB887 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: _gnu_exception_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:255
+# 3 0x00007FF83A791D1F in C:\Windows\System32\ucrtbase.dll: _C_specific_handler()
+# 4 0x00007FF83D504ABF in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FF83D3E5E97 in C:\Windows\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FF83D5043FE in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF60A692ADE in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: plotQuadratics() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/outputSystem.cpp:53
+# 8 0x00007FF60A69445D in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: basicInput() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/ai.cpp:130
+# 9 0x00007FF60A6BF1D7 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: main() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/main.cpp:25
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\zakir\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 19:24:03, GNU g++ 15.2.0, std=201703L, MinGW-W64 Runtime 14.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Aug 26 2026 19:24:13
+
+Run file:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe
+Directory:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x00007FF75C995504 (64-bit), Flags: Cmdre0, Thread: 0x2718 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75C926739 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF75C92D099 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FF75C92FE27 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: _gnu_exception_handler() at D:/W/B/src/mingw-w64/mingw-w64-crt/crt/crt_handler.c:255
+# 3 0x00007FF83A791D1F in C:\Windows\System32\ucrtbase.dll: _C_specific_handler()
+# 4 0x00007FF83D504ABF in C:\Windows\SYSTEM32\ntdll.dll: _chkstk()
+# 5 0x00007FF83D3E5E97 in C:\Windows\SYSTEM32\ntdll.dll: RtlLocateExtendedFeature()
+# 6 0x00007FF83D5043FE in C:\Windows\SYSTEM32\ntdll.dll: KiUserExceptionDispatcher()
+# 7 0x00007FF75C922AA2 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: plotQuadratics() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/outputSystem.cpp:52
+# 8 0x00007FF75C92445D in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: basicInput() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/ai.cpp:130
+# 9 0x00007FF75C9432A7 in C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe: main() at C:/Users/zakir/OneDrive/Р”РѕРєСѓРјРµРЅС‚С‹/cProject/QuadraticEquation/main.cpp:25
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\zakir\Downloads\TX\TXLib.h
+Compiled:	Aug 26 2026 19:24:57, GNU g++ 15.2.0, std=201703L, MinGW-W64 Runtime 14.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Aug 26 2026 19:25:09
+
+Run file:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation\program.exe
+Directory:	C:\Users\zakir\OneDrive\Документы\cProject\QuadraticEquation
+
+--------------------------------------------------

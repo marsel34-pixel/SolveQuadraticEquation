@@ -1,8 +1,11 @@
+//#define TX_USE_SPEAK
+//#include "TXLib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <math.h>
 #include <windows.h>
+
 
 #include "AI.h"
 #include "inputSystem.h"
@@ -41,7 +44,7 @@ void checkTokens(int *tokens)
     }
 }
 
-void aiInput() 
+void AIUltraProgramm()
 {
     int tokens = 200;
 
@@ -59,7 +62,7 @@ void aiInput()
 
     clearInput();
 
-    while (readCoeficients(&a, &b, &c))
+    while (readCoeficientsFromEquation(&a, &b, &c))
     {
         checkTokens(&tokens);
         AIWriteText("That is why I cannot understand you. Please try again and be more careful\n");
@@ -83,17 +86,19 @@ void infinityDontUnderstand(int *tokens)
         clearInput();
         checkTokens(tokens);
         AIWriteText("i cant understand you\n");
-    } 
+    }
 }
 
 void AIWriteText(const char *Text)
 {
     assert(Text);
-    
-    for (int i = 0; ; i++)
+
+    //txSpeak("\aAsk something");
+
+    for (int i = 0;; i++)
     {
         putchar(Text[i]);
-
+        //txSpeak("%s%s", "\a", Text[i]);
         Sleep(waitingForLetterTime);
 
         if (Text[i] == '\n' || Text[i] == '\0')
@@ -103,7 +108,7 @@ void AIWriteText(const char *Text)
         }
     }
 }
-void basicInput()
+void basicProgramm()
 {
     bool keepSolving = 1;
     double a = NAN, b = NAN, c = NAN;
@@ -111,7 +116,7 @@ void basicInput()
 
     while (keepSolving)
     {
-        if (readCoeficients(&a, &b, &c) == 1)
+        if (readCoeficientsFromEquation(&a, &b, &c) == 1)
         {
             continue;
         }
@@ -122,6 +127,7 @@ void basicInput()
 
         if (askAboutChoise("Do you want see graphic"))
         {
+            drawAnimationGraph(-a / 2, -b / 2, -c / 2);
             plotQuadratics(a / 2, b / 2, c / 2, x1, x2);
         }
 

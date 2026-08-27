@@ -1,7 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-const char redColor[] = "\033[31m";
+const char greenColor[] = "\033[31m";
 const char BaseColor[] = "\033[m";
 
 const int MaxTestLen = 1000;

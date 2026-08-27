@@ -29,13 +29,17 @@ ssize_t ReadTestsUnitFromFile(testUnit *TestArray)
                 sizeTestArray = i;
                 break;
             }
-            sizeTestArray = MaxTestLen + 1;
+            sizeTestArray = -1;
             printf("Read error: wrong input format\n");
             break;
         }
     }
 
-    fclose(file); //FIXME
+    if (fclose(file) == -1)
+    {
+        printf("Failed to close the file\n");
+        return -1;
+    }
 
     return sizeTestArray;
 }
@@ -94,16 +98,15 @@ int RunAllAvaiaibleTests()
                                      { 2, 10, 12,  2,         -1, -2         },
                                      { 1, 0,  0,   1,          0, NAN        } };
         
-    size_t testArraySize = ReadTestsUnitFromFile(TestArrayFromFile);
+    ssize_t testArraySize = ReadTestsUnitFromFile(TestArrayFromFile);
     //printf("12");
-    if (testArraySize != MaxTestLen + 1)
+    if (testArraySize != -1)
     {
         printf("Running tests from file\n");
         RunAllTestsFromArray(TestArrayFromFile, testArraySize);
     }
     else
     {
-        
         return 1;
     }
 
@@ -117,7 +120,7 @@ void ErrorMesage(testUnit TestMat, int nRoots, double x1, double x2)
 {
     printf("%sTest FAILED: a=%lg, b=%lg, c=%lg\n"
            "Expected x1=%lg, x2=%lg, nRoots=%d\n"
-           "got:     x1=%lg, x2=%lg, nRoots=%d\n%s", redColor,
+           "got:     x1=%lg, x2=%lg, nRoots=%d\n%s", greenColor,
            TestMat.a, TestMat.b, TestMat.c, TestMat.x1, TestMat.x2, TestMat.nRoots, x1, x2, nRoots,
             BaseColor);
 }

@@ -6,6 +6,14 @@ const int Y_SIZE = 53;
 const int ZeroX = 50;
 const int ZeroY = 26;
 
+int GetIndexFor1dArrayFromXandY(int x, int y);
+
+void animationPlotInit(char *toDraw);
+
+void calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c);
+
+void drawAnimationGraph(double a, double b, double c);
+
 int roundInBounds(double x, int board);
 
 void plotInit();

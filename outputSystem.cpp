@@ -2,13 +2,19 @@
 #include <math.h>
 #include <assert.h>
 #include <string.h>
+#include <windows.h>
 
 #include "outputSystem.h"
 #include "calculation.h"
 
 char PlotArray[Y_SIZE][X_SIZE] = {};
+
 const int NumLen = 100;
 const double step = 0.01;
+
+const char symbolForParabola = '#';
+const char greenColor[] = "\033[32m";
+const char BaseColor[] = "\033[m";
 
 void printRoots(int nRoots, double x1, double x2)
 {
@@ -37,6 +43,7 @@ void printRoots(int nRoots, double x1, double x2)
 
 void plotQuadratics(double a, double b, double c, double x1, double x2)
 {
+    
     plotInit();
 
     int xCoord = 0;
@@ -44,15 +51,14 @@ void plotQuadratics(double a, double b, double c, double x1, double x2)
 
     for (double i = 0; i < X_SIZE; i += step)
     {
-        xCoord = roundInBounds(i, X_SIZE);
-        yCoord = roundInBounds(a * (i - ZeroX) * (i - ZeroX) + b * (i - ZeroX) + c + ZeroY, Y_SIZE);
-        PlotArray[yCoord][xCoord] = '#'; 
+        calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
+        PlotArray[yCoord][xCoord] = symbolForParabola; 
     }
     
     DrawNumberOnPlot("x=", x1, roundInBounds(x1 + ZeroX,X_SIZE), ZeroY + 2); //const
     DrawNumberOnPlot("x=", x2, roundInBounds(x2 + ZeroX,X_SIZE), ZeroY - 2);
 
-    drawGraphicFromArray();
+   drawGraphicFromArray();
 }
 
 
@@ -90,10 +96,44 @@ void drawGraphicFromArray()
     {
         for (int x = 0; x < X_SIZE; x++)
         {
-           printf("%c", PlotArray[y][x]);
+            if (PlotArray[y][x] == symbolForParabola)
+            {
+                printf("%s%c%s", greenColor, symbolForParabola, BaseColor);
+            }
+            else
+            {
+                putchar(PlotArray[y][x]);
+            }
         }
         printf("\n");
     }
+}
+
+void drawAnimationGraph(double a, double b, double c)
+{
+    char toDraw[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
+
+    animationPlotInit(toDraw);
+
+    int xCoord = 0;
+    int yCoord = 0;
+
+    for (double i = 0; i < X_SIZE; i += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
+
+        if (toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] == symbolForParabola || yCoord == 0)
+        {
+            continue;
+        }
+        
+        toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForParabola; 
+        
+        printf("\033[H");
+        
+        fwrite(toDraw, sizeof(toDraw[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
+        Sleep(20);
+    }    
 }
 
 void plotInit()
@@ -115,4 +155,42 @@ void plotInit()
     {
         PlotArray[i][ZeroX] = '|';
     } 
+}
+
+void animationPlotInit(char *toDraw)
+{
+    for (int y = 0; y < Y_SIZE + 1; y++)  
+    {
+        for (int x = 0; x < X_SIZE + 1; x++)
+        {
+           toDraw[GetIndexFor1dArrayFromXandY(x, y)] = ' ';
+        }
+    }
+
+    for (int y = Y_SIZE - 1; y > -1; y--)
+    {
+        toDraw[GetIndexFor1dArrayFromXandY(X_SIZE, y)] = '\n';
+    }
+
+    for (int i = 0; i < X_SIZE; i++)
+    {
+        toDraw[GetIndexFor1dArrayFromXandY(i, ZeroY)] = '_';
+    }
+
+    for (int i = 0; i < Y_SIZE; i++)
+    {
+        toDraw[GetIndexFor1dArrayFromXandY(ZeroX, i)] = '|';
+    } 
+}
+
+void calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c)
+{
+    *xCoord = roundInBounds(x, X_SIZE);
+    *yCoord = roundInBounds(a * (x - ZeroX) * (x - ZeroX) + b * (x - ZeroX) + c + ZeroY, Y_SIZE);
+    //*yCoord = roundInBounds(a * sin((x-ZeroX)*b) + ZeroY, Y_SIZE);
+}
+
+int GetIndexFor1dArrayFromXandY(int x, int y)
+{
+    return y * (X_SIZE + 1) + x;
 }

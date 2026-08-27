@@ -7,8 +7,8 @@ void checkTokens(int *tokens);
 
 void infinityDontUnderstand(int *tokens);
 
-void basicInput();
+void basicProgramm();
 
-void aiInput();
+void AIUltraProgramm();
 
 #endif
