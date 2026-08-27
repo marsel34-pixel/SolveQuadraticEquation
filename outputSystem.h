@@ -16,11 +16,11 @@ void drawAnimationGraph(double a, double b, double c);
 
 int roundInBounds(double x, int board);
 
-void plotInit();
+void StaticPlotInit(char StaticPlotArray[][X_SIZE]);
 
-void DrawNumberOnPlot(const char *adding, double value, int x, int y);
+void DrawNumberOnPlot(char StaticPlotArray[][X_SIZE], const char *adding, double value, int x, int y);
 
-void drawGraphicFromArray();
+void drawGraphicFromArray(char StaticPlotArray[][X_SIZE]);
 
 void plotQuadratics(double a, double b, double c, double x1, double x2);
 

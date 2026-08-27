@@ -7,7 +7,7 @@
 #include "outputSystem.h"
 #include "calculation.h"
 
-char PlotArray[Y_SIZE][X_SIZE] = {};
+//char StaticPlotArray[Y_SIZE][X_SIZE] = {};
 
 const int NumLen = 100;
 const double step = 0.01;
@@ -43,8 +43,8 @@ void printRoots(int nRoots, double x1, double x2)
 
 void plotQuadratics(double a, double b, double c, double x1, double x2)
 {
-    
-    plotInit();
+    char StaticPlotArray[Y_SIZE][X_SIZE] = {};
+    StaticPlotInit(StaticPlotArray);
 
     int xCoord = 0;
     int yCoord = 0;
@@ -52,13 +52,13 @@ void plotQuadratics(double a, double b, double c, double x1, double x2)
     for (double i = 0; i < X_SIZE; i += step)
     {
         calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
-        PlotArray[yCoord][xCoord] = symbolForParabola; 
+        StaticPlotArray[yCoord][xCoord] = symbolForParabola; 
     }
     
-    DrawNumberOnPlot("x=", x1, roundInBounds(x1 + ZeroX,X_SIZE), ZeroY + 2); //const
-    DrawNumberOnPlot("x=", x2, roundInBounds(x2 + ZeroX,X_SIZE), ZeroY - 2);
+    DrawNumberOnPlot(StaticPlotArray, "x=", x1, roundInBounds(x1 + ZeroX,X_SIZE), ZeroY + 2);
+    DrawNumberOnPlot(StaticPlotArray, "x=", x2, roundInBounds(x2 + ZeroX,X_SIZE), ZeroY - 2);
 
-   drawGraphicFromArray();
+    drawGraphicFromArray(StaticPlotArray);
 }
 
 
@@ -71,7 +71,7 @@ int roundInBounds(double x, int board)
     return 0;
 }
 
-void DrawNumberOnPlot(const char *TextBeforeNumber, double NumberValue, int x, int y)
+void DrawNumberOnPlot(char StaticPlotArray[][X_SIZE], const char *TextBeforeNumber, double NumberValue, int x, int y)
 {
     assert(TextBeforeNumber);
 
@@ -84,25 +84,25 @@ void DrawNumberOnPlot(const char *TextBeforeNumber, double NumberValue, int x, i
 
         for (int i = x - lenTextToDraw / 2; i < X_SIZE && buffer[indexDrawnLetters] != '\0'; i++) 
         {
-            PlotArray[y][i] = buffer[indexDrawnLetters];
+            StaticPlotArray[y][i] = buffer[indexDrawnLetters];
             indexDrawnLetters++;
         }
     }
 }
 
-void drawGraphicFromArray()
+void drawGraphicFromArray(char StaticPlotArray[][X_SIZE])
 {
     for (int y = Y_SIZE; y > 0; y--)
     {
         for (int x = 0; x < X_SIZE; x++)
         {
-            if (PlotArray[y][x] == symbolForParabola)
+            if (StaticPlotArray[y][x] == symbolForParabola)
             {
                 printf("%s%c%s", greenColor, symbolForParabola, BaseColor);
             }
             else
             {
-                putchar(PlotArray[y][x]);
+                putchar(StaticPlotArray[y][x]);
             }
         }
         printf("\n");
@@ -136,24 +136,24 @@ void drawAnimationGraph(double a, double b, double c)
     }    
 }
 
-void plotInit()
+void StaticPlotInit(char StaticPlotArray[][X_SIZE])
 {
     for (int y = 0; y < Y_SIZE; y++)  
     {
         for (int x = 0; x < X_SIZE; x++)
         {
-           PlotArray[y][x] = ' ';
+           StaticPlotArray[y][x] = ' ';
         }
     }
 
     for (int i = 0; i < X_SIZE; i++)
     {
-        PlotArray[ZeroY][i] = '_';
+        StaticPlotArray[ZeroY][i] = '_';
     }
 
     for (int i = 0; i < Y_SIZE; i++)
     {
-        PlotArray[i][ZeroX] = '|';
+        StaticPlotArray[i][ZeroX] = '|';
     } 
 }
 
@@ -186,8 +186,8 @@ void animationPlotInit(char *toDraw)
 void calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c)
 {
     *xCoord = roundInBounds(x, X_SIZE);
-    *yCoord = roundInBounds(a * (x - ZeroX) * (x - ZeroX) + b * (x - ZeroX) + c + ZeroY, Y_SIZE);
-    //*yCoord = roundInBounds(a * sin((x-ZeroX)*b) + ZeroY, Y_SIZE);
+    //*yCoord = roundInBounds(a * (x - ZeroX) * (x - ZeroX) + b * (x - ZeroX) + c + ZeroY, Y_SIZE);
+    *yCoord = roundInBounds(a * exp(x-ZeroX) + ZeroY, Y_SIZE);
 }
 
 int GetIndexFor1dArrayFromXandY(int x, int y)

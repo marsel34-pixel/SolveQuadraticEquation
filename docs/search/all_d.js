@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['readcoeficientsfromequation_0',['readCoeficientsFromEquation',['../input_system_8cpp.html#a15f14225490a30d3d821fada9e767b72',1,'readCoeficientsFromEquation(double *a, double *b, double *c):&#160;inputSystem.cpp'],['../input_system_8h.html#a15f14225490a30d3d821fada9e767b72',1,'readCoeficientsFromEquation(double *a, double *b, double *c):&#160;inputSystem.cpp']]],
+  ['readcoefs_1',['readCoefs',['../input_system_8cpp.html#a1e44239da931e7c58cbc976a7f123a04',1,'readCoefs(double *a, double *b, double *c):&#160;inputSystem.cpp'],['../input_system_8h.html#a1e44239da931e7c58cbc976a7f123a04',1,'readCoefs(double *a, double *b, double *c):&#160;inputSystem.cpp']]],
+  ['readsinglecoeficient_2',['readSingleCoeficient',['../input_system_8cpp.html#a237df6aa0589402c8da9894ef1131870',1,'readSingleCoeficient(double *a):&#160;inputSystem.cpp'],['../input_system_8h.html#a237df6aa0589402c8da9894ef1131870',1,'readSingleCoeficient(double *a):&#160;inputSystem.cpp']]],
+  ['readtestsunitfromfile_3',['ReadTestsUnitFromFile',['../test_8cpp.html#aba014fb975df0888ae1a6446e3dae929',1,'ReadTestsUnitFromFile(testUnit *TestArray):&#160;test.cpp'],['../test_8h.html#aba014fb975df0888ae1a6446e3dae929',1,'ReadTestsUnitFromFile(testUnit *TestArray):&#160;test.cpp']]],
+  ['right_4',['Right',['../input_system_8cpp.html#adde67e0b9b1675d66f465c46866d2e7bad48f7af8c070184f3774c8e85854eb66',1,'inputSystem.cpp']]],
+  ['roundinbounds_5',['roundInBounds',['../output_system_8cpp.html#a3672ec787c1b9a1fe4da5e36335a740f',1,'roundInBounds(double x, int board):&#160;outputSystem.cpp'],['../output_system_8h.html#a3672ec787c1b9a1fe4da5e36335a740f',1,'roundInBounds(double x, int board):&#160;outputSystem.cpp']]],
+  ['run_5fall_5ftests_6',['run_all_tests',['../marcel__test_8cpp.html#adf5fa5d1a8867dba73315c105f40b449',1,'run_all_tests():&#160;marcel_test.cpp'],['../marcel__test_8h.html#adf5fa5d1a8867dba73315c105f40b449',1,'run_all_tests():&#160;marcel_test.cpp']]],
+  ['runallavaiaibletests_7',['RunAllAvaiaibleTests',['../test_8cpp.html#a2f729309b2c01dc22f2445ac87df2baa',1,'RunAllAvaiaibleTests():&#160;test.cpp'],['../test_8h.html#a2f729309b2c01dc22f2445ac87df2baa',1,'RunAllAvaiaibleTests():&#160;test.cpp']]],
+  ['runalltestsfromarray_8',['RunAllTestsFromArray',['../test_8cpp.html#ad0c69590b2d2c4c27ca42fc3fb988cc8',1,'RunAllTestsFromArray(testUnit *TestMat, size_t TestSize):&#160;test.cpp'],['../test_8h.html#ad0c69590b2d2c4c27ca42fc3fb988cc8',1,'RunAllTestsFromArray(testUnit *TestMat, size_t TestSize):&#160;test.cpp']]],
+  ['runtest_9',['RunTest',['../test_8cpp.html#a8d7724a78f97334d3b1a38c605947a35',1,'RunTest(testUnit TestMat):&#160;test.cpp'],['../test_8h.html#a9dd326ca13d9ff85e2e21b6700c80e68',1,'RunTest(struct testUnit TestMat):&#160;test.cpp']]]
+];

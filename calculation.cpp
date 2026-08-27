@@ -36,17 +36,17 @@ int solveQuadraticEquation(double a, double b, double c, double *x1, double *x2)
     }
 }
 
-int solveLinearEquation(double b, double c, double *x)
+int solveLinearEquation(double k, double b, double *x)
 {
     assert(x);
 
-    if (isZero(b))
+    if (isZero(k))
     {
-        return isZero(c) ? InfRoots : NoRoots;
+        return isZero(b) ? InfRoots : NoRoots;
     }
     else
     {
-        *x = -c / b;
+        *x = -b / k;
         return OneRoot;
     }
 }

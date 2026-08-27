@@ -1,0 +1,8 @@
+var calculation_8cpp =
+[
+    [ "areDoubleEqual", "calculation_8cpp.html#a909b5030479384c5c20ef93a74ec7cce", null ],
+    [ "isZero", "calculation_8cpp.html#a7802d457b65f7d2a9acde7dfe94954c8", null ],
+    [ "solveLinearEquation", "calculation_8cpp.html#a401a75a5240461cce89a880fd71ff1b1", null ],
+    [ "solveQuadraticEquation", "calculation_8cpp.html#a8d6e30ab60b2aa734a61d31a8b244fa4", null ],
+    [ "solveQuadraticEquationWithDiscriminant", "calculation_8cpp.html#ad83e379fee8aaf0d42943422f5779436", null ]
+];

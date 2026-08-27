@@ -25,21 +25,32 @@
 var NAVTREE =
 [
   [ "My Project", "index.html", [
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ]
+    [ "Классы", "annotated.html", [
+      [ "Классы", "annotated.html", "annotated_dup" ],
+      [ "Алфавитный указатель классов", "classes.html", null ],
+      [ "Члены классов", "functions.html", [
+        [ "Указатель", "functions.html", null ],
+        [ "Переменные", "functions_vars.html", null ]
+      ] ]
     ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+    [ "Файлы", "files.html", [
+      [ "Файлы", "files.html", "files_dup" ],
+      [ "Список членов всех файлов", "globals.html", [
+        [ "Указатель", "globals.html", null ],
+        [ "Функции", "globals_func.html", null ],
+        [ "Переменные", "globals_vars.html", null ],
+        [ "Перечисления", "globals_enum.html", null ],
+        [ "Элементы перечислений", "globals_eval.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_a_i_8h_source.html"
+"_a_i_8cpp.html"
 ];
 
-const SYNCONMSG = 'click to disable panel synchronization';
-const SYNCOFFMSG = 'click to enable panel synchronization';
-const LISTOFALLMEMBERS = 'List of all members';
+const SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
+const SYNCOFFMSG = 'нажмите на включить для синхронизации панелей';
+const LISTOFALLMEMBERS = 'Полный список членов класса';

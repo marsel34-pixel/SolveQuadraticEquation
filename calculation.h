@@ -1,23 +1,74 @@
 #ifndef CALCULATION_H
 #define CALCULATION_H
 
+/**
+ * @brief Значения которые возвращают функции решения уравнений для разных количеств корней
+ */
 enum NumRoots
 {
-    NoRoots = 0,
-    OneRoot = 1,
+    NoRoots = 0, 
+    OneRoot = 1, 
     TwoRoots = 2,
     InfRoots = -1
 };
 
-
+/**
+ * @brief Решает квадратное уравнение, которое необходимо решить через дискрименант
+ *
+ * 
+ * 
+ *
+ * @param a коэфициент a для уравнения
+ * @param b коэфициент b для уравнения
+ * @param c коэфициент c для уравнения
+ * @param[out] x1 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
+ * @param[out] x2 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней или одного корня
+ *
+ * @return количество корней уравнения
+ */
 int solveQuadraticEquationWithDiscriminant(double a, double b, double c, double *x1, double *x2);
 
+/**
+ * @brief Решает вкадратное уравнение в действительных числах
+ *
+ * @param a коэфициент a для уравнения
+ * @param b коэфициент b для уравнения
+ * @param c коэфициент c для уравнения
+ * @param[out] x1 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
+ * @param[out] x2 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней или одного корня
+ *
+ * @return количество корней уравнения
+ */
 int solveQuadraticEquation(double a, double b, double c, double *x1, double *x2);
 
+/**
+ * @brief Проверяет, является ли число типа double нулем, с точностью 1e-9
+ *
+ * @param num число для проверки
+ *
+ * @return 1 если число примерно равно 0, иначе 0
+ */
 bool isZero(double num);
 
-int solveLinearEquation(double b, double c, double *x);
+/**
+ * @brief Решает линейное уравнение
+ *
+ * @param k коэфициент k для уравнения
+ * @param b коэфициент b для уравнения
+ * @param[out] x указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
+ *
+ * @return количество корней уравнения
+ */
+int solveLinearEquation(double k, double b, double *x);
 
+/**
+ * @brief Сравнивает два double числа
+ *
+ * @param compare1 первое число
+ * @param compare2 второе число
+ *
+ * @return 1 если рваны, иначе 0
+ */
 bool areDoubleEqual(double compare1, double compare2);
 
 #endif

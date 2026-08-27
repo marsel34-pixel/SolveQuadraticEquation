@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Файл inputSystem.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл inputSystem.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;cctype&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="input_system_8h_source.html">inputSystem.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:adde67e0b9b1675d66f465c46866d2e7b" id="r_adde67e0b9b1675d66f465c46866d2e7b"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#adde67e0b9b1675d66f465c46866d2e7b">LeftOrRight</a> { <a class="el" href="#adde67e0b9b1675d66f465c46866d2e7ba9d4d8b0b72fc2659da772d761a3c5ecb">Left</a> = 0
+, <a class="el" href="#adde67e0b9b1675d66f465c46866d2e7bad48f7af8c070184f3774c8e85854eb66">Right</a> = 1
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a1e44239da931e7c58cbc976a7f123a04" id="r_a1e44239da931e7c58cbc976a7f123a04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1e44239da931e7c58cbc976a7f123a04">readCoefs</a> (double *a, double *b, double *c)</td></tr>
+<tr class="memitem:afb9990f9ed5b6dea69bec8bf5bc47c06" id="r_afb9990f9ed5b6dea69bec8bf5bc47c06"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#afb9990f9ed5b6dea69bec8bf5bc47c06">findPowerX</a> (char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool side)</td></tr>
+<tr class="memdesc:afb9990f9ed5b6dea69bec8bf5bc47c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memitem:ac69f7f6ec7841771bb6e05556da9f3a0" id="r_ac69f7f6ec7841771bb6e05556da9f3a0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ac69f7f6ec7841771bb6e05556da9f3a0">checkLeftForPower</a> (char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound)</td></tr>
+<tr class="memdesc:ac69f7f6ec7841771bb6e05556da9f3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memitem:a7e7209e0db63ecbbfc668287bc1c514e" id="r_a7e7209e0db63ecbbfc668287bc1c514e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7e7209e0db63ecbbfc668287bc1c514e">checkRightForPower</a> (char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound)</td></tr>
+<tr class="memitem:a7d500357dbc1cc799f28873a8e9ccc15" id="r_a7d500357dbc1cc799f28873a8e9ccc15"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7d500357dbc1cc799f28873a8e9ccc15">setCoef</a> (char *EquationStr, int startN, int endN, double *buffCoof, double *a, double *b, double *c)</td></tr>
+<tr class="memitem:aedcdb141569f551bc4c5fd7880e715d7" id="r_aedcdb141569f551bc4c5fd7880e715d7"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aedcdb141569f551bc4c5fd7880e715d7">findCoefsFromStr</a> (char *EquationStr, double *a, double *b, double *c)</td></tr>
+<tr class="memitem:a15f14225490a30d3d821fada9e767b72" id="r_a15f14225490a30d3d821fada9e767b72"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a15f14225490a30d3d821fada9e767b72">readCoeficientsFromEquation</a> (double *a, double *b, double *c)</td></tr>
+<tr class="memitem:a237df6aa0589402c8da9894ef1131870" id="r_a237df6aa0589402c8da9894ef1131870"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a237df6aa0589402c8da9894ef1131870">readSingleCoeficient</a> (double *a)</td></tr>
+<tr class="memdesc:a237df6aa0589402c8da9894ef1131870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memitem:a70e5fab262014d6e6822a6ba63f536b6" id="r_a70e5fab262014d6e6822a6ba63f536b6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a70e5fab262014d6e6822a6ba63f536b6">askAboutChoise</a> (const char *text)</td></tr>
+<tr class="memdesc:a70e5fab262014d6e6822a6ba63f536b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memitem:a5d555657ce648c1a47abb70f1029589d" id="r_a5d555657ce648c1a47abb70f1029589d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d555657ce648c1a47abb70f1029589d">clearInput</a> ()</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Перечисления</h2>
+<a id="adde67e0b9b1675d66f465c46866d2e7b" name="adde67e0b9b1675d66f465c46866d2e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde67e0b9b1675d66f465c46866d2e7b">&#9670;&#160;</a></span>LeftOrRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#adde67e0b9b1675d66f465c46866d2e7b">LeftOrRight</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="adde67e0b9b1675d66f465c46866d2e7ba9d4d8b0b72fc2659da772d761a3c5ecb" name="adde67e0b9b1675d66f465c46866d2e7ba9d4d8b0b72fc2659da772d761a3c5ecb"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adde67e0b9b1675d66f465c46866d2e7bad48f7af8c070184f3774c8e85854eb66" name="adde67e0b9b1675d66f465c46866d2e7bad48f7af8c070184f3774c8e85854eb66"></a>Right&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="a70e5fab262014d6e6822a6ba63f536b6" name="a70e5fab262014d6e6822a6ba63f536b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e5fab262014d6e6822a6ba63f536b6">&#9670;&#160;</a></span>askAboutChoise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool askAboutChoise </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entry point. </p>
+<p>Execution of the program starts here.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+
+</div>
+</div>
+<a id="ac69f7f6ec7841771bb6e05556da9f3a0" name="ac69f7f6ec7841771bb6e05556da9f3a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69f7f6ec7841771bb6e05556da9f3a0">&#9670;&#160;</a></span>checkLeftForPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkLeftForPower </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>EquationStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>IndexStrForCheck</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>foundPowerX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>xWasFound</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entry point. </p>
+<p>Execution of the program starts here.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+
+</div>
+</div>
+<a id="a7e7209e0db63ecbbfc668287bc1c514e" name="a7e7209e0db63ecbbfc668287bc1c514e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e7209e0db63ecbbfc668287bc1c514e">&#9670;&#160;</a></span>checkRightForPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkRightForPower </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>EquationStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>strIdx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>foundPowerX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>xWasFound</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d555657ce648c1a47abb70f1029589d" name="a5d555657ce648c1a47abb70f1029589d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d555657ce648c1a47abb70f1029589d">&#9670;&#160;</a></span>clearInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clearInput </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedcdb141569f551bc4c5fd7880e715d7" name="aedcdb141569f551bc4c5fd7880e715d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedcdb141569f551bc4c5fd7880e715d7">&#9670;&#160;</a></span>findCoefsFromStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findCoefsFromStr </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>EquationStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb9990f9ed5b6dea69bec8bf5bc47c06" name="afb9990f9ed5b6dea69bec8bf5bc47c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9990f9ed5b6dea69bec8bf5bc47c06">&#9670;&#160;</a></span>findPowerX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findPowerX </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>EquationStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>StartN</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>endN</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>termWasFound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>foundPowerX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>buffCoef</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>Left</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entry point. </p>
+<p>Execution of the program starts here.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+
+</div>
+</div>
+<a id="a15f14225490a30d3d821fada9e767b72" name="a15f14225490a30d3d821fada9e767b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f14225490a30d3d821fada9e767b72">&#9670;&#160;</a></span>readCoeficientsFromEquation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readCoeficientsFromEquation </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e44239da931e7c58cbc976a7f123a04" name="a1e44239da931e7c58cbc976a7f123a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e44239da931e7c58cbc976a7f123a04">&#9670;&#160;</a></span>readCoefs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readCoefs </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a237df6aa0589402c8da9894ef1131870" name="a237df6aa0589402c8da9894ef1131870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a237df6aa0589402c8da9894ef1131870">&#9670;&#160;</a></span>readSingleCoeficient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readSingleCoeficient </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entry point. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>List of arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+
+</div>
+</div>
+<a id="a7d500357dbc1cc799f28873a8e9ccc15" name="a7d500357dbc1cc799f28873a8e9ccc15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d500357dbc1cc799f28873a8e9ccc15">&#9670;&#160;</a></span>setCoef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setCoef </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>EquationStr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>startN</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>endN</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>buffCoof</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="input_system_8cpp.html">inputSystem.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>
