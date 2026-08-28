@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <cctype>
 #include <math.h>
+
+#include "setting.h"
 #include "inputSystem.h"
 
 //---------------------------------------------------------------

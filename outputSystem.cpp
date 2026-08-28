@@ -9,12 +9,7 @@
 
 //char StaticPlotArray[Y_SIZE][X_SIZE] = {};
 
-const int NumLen = 100;
-const double step = 0.01;
 
-const char symbolForParabola = '#';
-const char greenColor[] = "\033[32m";
-const char BaseColor[] = "\033[m";
 
 void printRoots(int nRoots, double x1, double x2)
 {
@@ -60,7 +55,6 @@ void plotQuadratics(double a, double b, double c, double x1, double x2)
 
     drawGraphicFromArray(StaticPlotArray);
 }
-
 
 int roundInBounds(double x, int board) 
 {
@@ -186,11 +180,80 @@ void animationPlotInit(char *toDraw)
 void calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c)
 {
     *xCoord = roundInBounds(x, X_SIZE);
-    //*yCoord = roundInBounds(a * (x - ZeroX) * (x - ZeroX) + b * (x - ZeroX) + c + ZeroY, Y_SIZE);
-    *yCoord = roundInBounds(a * exp(x-ZeroX) + ZeroY, Y_SIZE);
+    *yCoord = roundInBounds(a * (x - ZeroX) * (x - ZeroX) + b * (x - ZeroX) + c + ZeroY, Y_SIZE);
+    //*yCoord = roundInBounds(a * exp(x-ZeroX) + ZeroY, Y_SIZE);
 }
 
 int GetIndexFor1dArrayFromXandY(int x, int y)
 {
     return y * (X_SIZE + 1) + x;
+}
+
+void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy)
+{
+    char gameScreen[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
+    int xCoord = 0, yCoord = 0;
+
+    animationPlotInit(gameScreen);
+
+    for (int i = 0; i < numEnemy; i++)
+    {
+        if (enemyArray[i].isAlive)
+        {
+            setEnemy(gameScreen, '@', enemyArray[i]);
+        }
+    }
+
+    for (double i = 0; i < X_SIZE; i += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
+
+        int NowIndex = GetIndexFor1dArrayFromXandY(xCoord, yCoord);
+        if (gameScreen[NowIndex] == symbolForParabola || yCoord == 0)
+        {
+            continue;
+        }
+        else if (gameScreen[NowIndex] == '@')
+        {
+            int indexNearestEnemy = findNearestEnemyToPoint(enemyArray, numEnemy, xCoord, yCoord);
+
+            setEnemy(gameScreen, ' ', enemyArray[indexNearestEnemy]);
+            enemyArray[indexNearestEnemy].isAlive = 0;
+        }
+
+        gameScreen[NowIndex] = symbolForParabola; 
+        
+        printf("\033[H");
+        fwrite(gameScreen, sizeof(gameScreen[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
+        Sleep(20);
+    }    
+}
+
+void setEnemy(char gameScreen[], char setSymbol, enemy Enemy)
+{
+    for (int i = 0; i < maxEnemySize; i++)
+    {
+        gameScreen[GetIndexFor1dArrayFromXandY(Enemy.x + Enemy.enemyPointsArray[i][0], Enemy.y + Enemy.enemyPointsArray[i][1])] = setSymbol;
+    }
+}
+
+int findNearestEnemyToPoint(enemy enemyArray[], int numEnemy, int x, int y)
+{
+    double minDistToEnemy = 12000;
+    int indexNearestEnemy = 0;
+
+    for (int j = 0; j < numEnemy; j++)
+    {
+        if(enemyArray[j].isAlive)
+        {
+            double thisDist = (x - enemyArray[j].x) * (x - enemyArray[j].x) + (y - enemyArray[j].y) * (y - enemyArray[j].y);
+            if (thisDist < minDistToEnemy)
+            {
+                indexNearestEnemy = j;
+                minDistToEnemy = thisDist;
+            }
+        }
+    }
+
+    return indexNearestEnemy;
 }

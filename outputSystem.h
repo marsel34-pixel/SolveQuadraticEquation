@@ -1,10 +1,11 @@
 #ifndef OUTPUT_SYSTEM_H
 #define OUTPUT_SYSTEM_H
 
-const int X_SIZE = 100;
-const int Y_SIZE = 53;
-const int ZeroX = 50;
-const int ZeroY = 26;
+#include "setting.h"
+
+int findNearestEnemyToPoint(enemy enemyArray[], int numEnemy, int x, int y);
+
+void setEnemy(char gameScreen[], char setSymbol, enemy Enemy);
 
 int GetIndexFor1dArrayFromXandY(int x, int y);
 
@@ -25,5 +26,7 @@ void drawGraphicFromArray(char StaticPlotArray[][X_SIZE]);
 void plotQuadratics(double a, double b, double c, double x1, double x2);
 
 void printRoots(int nRoots, double x1, double x2);
+
+void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy);
 
 #endif

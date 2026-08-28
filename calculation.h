@@ -1,16 +1,11 @@
 #ifndef CALCULATION_H
 #define CALCULATION_H
 
+#include "setting.h"
 /**
- * @brief Значения которые возвращают функции решения уравнений для разных количеств корней
+ * @brief Значения для обозначения количества корней квадратного уравнения
  */
-enum NumRoots
-{
-    NoRoots = 0, 
-    OneRoot = 1, 
-    TwoRoots = 2,
-    InfRoots = -1
-};
+
 
 /**
  * @brief Решает квадратное уравнение, которое необходимо решить через дискрименант
@@ -67,7 +62,7 @@ int solveLinearEquation(double k, double b, double *x);
  * @param compare1 первое число
  * @param compare2 второе число
  *
- * @return 1 если рваны, иначе 0
+ * @return 1 если равны, иначе 0
  */
 bool areDoubleEqual(double compare1, double compare2);
 

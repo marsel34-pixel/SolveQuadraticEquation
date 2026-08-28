@@ -1,17 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-const char greenColor[] = "\033[31m";
-const char BaseColor[] = "\033[m";
-
-const int MaxTestLen = 1000;
-
-struct testUnit
-{
-    double a, b, c;
-    int nRoots;
-    double x1, x2;
-};
+#include "setting.h"
 
 ssize_t ReadTestsUnitFromFile(testUnit *TestArray);
 

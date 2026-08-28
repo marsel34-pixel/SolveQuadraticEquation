@@ -7,10 +7,11 @@
 #include <windows.h>
 
 
-#include "AI.h"
+#include "programMods.h"
 #include "inputSystem.h"
 #include "calculation.h"
 #include "outputSystem.h"
+
 
 const int cartMinNumber = 1000000;
 const int waitingForLetterTime = 30;
@@ -19,9 +20,9 @@ void checkTokens(int *tokens)
 {
     assert(tokens);
 
-    Sleep(rand() % 3000);
+    Sleep(randomNumberInRange(0,3000));
 
-    *tokens -= 10 + rand() % 120;
+    *tokens -= randomNumberInRange(10, 150);
 
     if (*tokens < 0)
     {
@@ -40,7 +41,7 @@ void checkTokens(int *tokens)
             assert(0);
         }
 
-        *tokens += 20 + rand() % 240;
+        *tokens += randomNumberInRange(20, 300);
     }
 }
 
@@ -93,8 +94,6 @@ void AIWriteText(const char *Text)
 {
     assert(Text);
 
-    //txSpeak("\aAsk something");
-
     for (int i = 0;; i++)
     {
         putchar(Text[i]);
@@ -134,5 +133,84 @@ void basicProgramm()
         keepSolving = askAboutChoise("Do you want continue?");
 
         clearInput();
+    }
+}
+
+int randomNumberInRange(int min, int max)
+{
+    return min +  rand() % (max - min);
+}
+void gameMode()
+{
+    double a = NAN, b = NAN, c = NAN;
+    bool isPlay = 1;
+    
+    const int numEnemy = 10; 
+
+    enemy enemyArray[numEnemy];
+
+    enemyInit(enemyArray, numEnemy);
+    
+    gameStep(0.5, 0, 0, enemyArray, numEnemy);
+
+    while (isPlay)
+    {
+        
+        if (readCoeficientsFromEquation(&a, &b, &c) == 1 )
+        {
+            continue;
+        }
+        if (isZero(a))
+        {
+            printf("Its to easy, try make parabola");
+            continue;
+        }
+
+        gameStep(-a / 2, -b / 2, -c / 2, enemyArray, numEnemy);
+
+        isPlay = 0;
+        for (int i = 0; i < numEnemy; i++)
+        {
+            if (enemyArray[i].isAlive)
+            {
+                isPlay = 1;
+            }
+        }
+    }
+}
+
+void enemyInit(enemy enemyArray[], const int numEnemy)
+{   
+    for (int i = 0; i < numEnemy; i++)
+    {
+        enemyArray[i].x = randomNumberInRange(5, X_SIZE-5);
+        enemyArray[i].y = randomNumberInRange(5, Y_SIZE-5);
+        enemyArray[i].isAlive = 1;
+
+        for (int j = 1; j < maxEnemySize; j++)
+        {
+            int neighborToNewPoint = randomNumberInRange(0, j);
+
+            enemyArray[i].enemyPointsArray[j][0] = enemyArray[i].enemyPointsArray[neighborToNewPoint][0];
+            enemyArray[i].enemyPointsArray[j][1] = enemyArray[i].enemyPointsArray[neighborToNewPoint][1];
+
+            switch (randomNumberInRange(0,4))
+            {
+            case 0:
+                enemyArray[i].enemyPointsArray[j][0] += 1;
+                break;
+            case 1:
+                enemyArray[i].enemyPointsArray[j][0] -= 1;
+                break;
+            case 2:
+                enemyArray[i].enemyPointsArray[j][1] += 1;
+                break;
+            case 3:
+                enemyArray[i].enemyPointsArray[j][1] -= 1;
+                break;
+            default:
+                break;
+            }
+        }
     }
 }

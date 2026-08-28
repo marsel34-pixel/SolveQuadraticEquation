@@ -1,36 +1,46 @@
 //#define TX_USE_SPEAK
 //#include "TXLib.h"
 #include <stdio.h>
-#include <string.h>
-#include <assert.h>
-#include <cctype>
-#include <math.h>
-#include <windows.h>
 #include <getopt.h>
+#include <random>
+#include <time.h>
 
 #include "marcel_test.h"
-#include "calculation.h"
-#include "inputSystem.h"
 #include "test.h"
-#include "outputSystem.h"
-#include "AI.h"
+#include "programMods.h"
+
+enum selectedMode
+{
+    basic = 0,
+    test = 1,
+    AI = 2,
+    game = 3,
+    another = 4
+};
 
 int selectMode(int argc, char *argv[]);
 
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     switch (selectMode(argc, argv))
     {
-        case 0:
+        case basic:
             basicProgramm();
-            break;    
-        case 1:
+            break;   
+
+        case test:
             RunAllAvaiaibleTests();
             break;
-        case 2:
+
+        case AI:
             AIUltraProgramm();
             break;
+        case game:
+            gameMode();
+            break;
+    
         default:
             printf("unknown command");
             break;
@@ -43,30 +53,35 @@ int selectMode(int argc, char *argv[])
 {
     int flag_AI = 0;
 	int flag_Test = 0;
+    int flag_Game = 0;
 
     const char* short_options = "at";
     
-    const option long_options[] = {
-		{ "AI", no_argument, &flag_AI, 1 },
-		{ "Test", no_argument, &flag_Test, 1 },
-		{ NULL, no_argument, NULL, 0}
-	};
+    const option long_options[] = { { "AI", no_argument, &flag_AI, 1 },
+		                            { "Test", no_argument, &flag_Test, 1 },
+                                    { "Game", no_argument, &flag_Game, 1 },
+		                            { NULL, no_argument, NULL, 0} };
+
     while (getopt_long(argc, argv, short_options,
 		long_options, NULL)!=-1);
 
-    if (!flag_AI && !flag_Test)
+    if (!flag_AI && !flag_Test && !flag_Game)
     {
-        return 0;
+        return basic;
     }
     else if (flag_AI)
     {
-        return 1;
+        return AI;
     }
     else if (flag_Test)
     {
-        return 2;
+        return test;
     }
-    return 3;
+    else if (flag_Game)
+    {
+        return game;
+    }
+    return another;
 }
 //---------------------------------------------------------------
 

@@ -4,6 +4,7 @@
 #include "calculation.h"
 #include "test.h"
 
+
 testUnit TestArrayFromFile[MaxTestLen] = {};
 
 ssize_t ReadTestsUnitFromFile(testUnit *TestArray)
@@ -124,3 +125,4 @@ void ErrorMesage(testUnit TestMat, int nRoots, double x1, double x2)
            TestMat.a, TestMat.b, TestMat.c, TestMat.x1, TestMat.x2, TestMat.nRoots, x1, x2, nRoots,
             BaseColor);
 }
+
