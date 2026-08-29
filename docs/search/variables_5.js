@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['isalive_0',['isAlive',['../structenemy.html#a42f01871b368378bf369878294920a3a',1,'enemy']]]
+  ['maxenemysize_0',['maxEnemySize',['../setting_8h.html#adfe874415282198fcfbb7637e3f5a582',1,'setting.h']]],
+  ['maxinputlen_1',['MaxInputLen',['../setting_8h.html#a22bce1c842170154825c6c070bdd3bb8',1,'setting.h']]],
+  ['maxtestlen_2',['MaxTestLen',['../setting_8h.html#ad85943376c5f3fe0397e7ab5e140df01',1,'setting.h']]]
 ];

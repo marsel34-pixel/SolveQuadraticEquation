@@ -2,67 +2,66 @@
 #define CALCULATION_H
 
 #include "setting.h"
-/**
- * @brief Значения для обозначения количества корней квадратного уравнения
- */
+
 
 
 /**
- * @brief Решает квадратное уравнение, которое необходимо решить через дискрименант
+ * @brief 
+Solves a quadratic equation that requires the use of the discriminant
  *
  * 
  * 
  *
- * @param a коэфициент a для уравнения
- * @param b коэфициент b для уравнения
- * @param c коэфициент c для уравнения
- * @param[out] x1 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
- * @param[out] x2 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней или одного корня
+ * @param a coeficient a for equation
+ * @param b coeficient b for equation
+ * @param c coeficient c for equation
+ * @param[out] x1 A pointer to the variable where the equation's root is stored makes no difference in the case where there are no roots.
+ * @param[out] x2 The pointer to the variable where the equation's root is stored makes no difference in the case of no roots or a single root.
  *
- * @return количество корней уравнения
+ * @return number of roots
  */
 int solveQuadraticEquationWithDiscriminant(double a, double b, double c, double *x1, double *x2);
 
 /**
- * @brief Решает вкадратное уравнение в действительных числах
+ * @brief Solves a quadratic equation over the real numbers.
  *
- * @param a коэфициент a для уравнения
- * @param b коэфициент b для уравнения
- * @param c коэфициент c для уравнения
- * @param[out] x1 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
- * @param[out] x2 указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней или одного корня
+ * @param a coeficient a for equation
+ * @param b coeficient b for equation
+ * @param c coeficient c for equation
+ * @param[out] x1 A pointer to the variable where the equation's root is stored makes no difference in the case where there are no roots.
+ * @param[out] x2 The pointer to the variable where the equation's root is stored makes no difference in the case of no roots or a single root.
  *
- * @return количество корней уравнения
+ * @return numberof roots
  */
 int solveQuadraticEquation(double a, double b, double c, double *x1, double *x2);
 
 /**
- * @brief Проверяет, является ли число типа double нулем, с точностью 1e-9
+ * @brief Checks whether a double-precision number is zero, with a precision of 1e-9.
  *
- * @param num число для проверки
+ * @param num numer for check
  *
- * @return 1 если число примерно равно 0, иначе 0
+ * @return 1 if zero, else 0
  */
 bool isZero(double num);
 
 /**
- * @brief Решает линейное уравнение
+ * @brief Solves linear equation
  *
- * @param k коэфициент k для уравнения
- * @param b коэфициент b для уравнения
- * @param[out] x указатель на переменную, куда записывается корень уравнения, ничего не меняет в случае без корней
+ * @param k coeficient k for equation
+ * @param b coeficient b for equation
+ * @param[out] x A pointer to the variable where the equation's root is stored makes no difference in the case where there are no roots.
  *
- * @return количество корней уравнения
+ * @return number of roots
  */
 int solveLinearEquation(double k, double b, double *x);
 
 /**
- * @brief Сравнивает два double числа
+ * @brief compare two double number
  *
- * @param compare1 первое число
- * @param compare2 второе число
+ * @param compare1 fisrt number
+ * @param compare2 second number
  *
- * @return 1 если равны, иначе 0
+ * @return 1 if equal, else 0
  */
 bool areDoubleEqual(double compare1, double compare2);
 

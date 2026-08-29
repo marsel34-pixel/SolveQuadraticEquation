@@ -36,6 +36,9 @@ struct enemy
     int enemyPointsArray[maxEnemySize][2] = {};
 };
 
+/**
+ * @brief Values ​​indicating the number of roots of a quadratic equation
+ */
 enum NumRoots
 {
     NoRoots = 0, 

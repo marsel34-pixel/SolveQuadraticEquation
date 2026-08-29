@@ -47,6 +47,8 @@ int main(int argc, char *argv[])
             break;
 
         case gameForTwo:
+            //CreateNewProgram();
+            
             gameTwoPlyerMode();
             break;
     

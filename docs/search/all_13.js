@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['zerox_0',['ZeroX',['../setting_8h.html#a5a43d214990d369eec73bc9ea5431ac1',1,'setting.h']]],
-  ['zeroy_1',['ZeroY',['../setting_8h.html#a3a9befcaaf4d00590f2fc07679701ef4',1,'setting.h']]]
+  ['y_0',['y',['../structenemy.html#a385902716b48e233310c5769cf957502',1,'enemy']]],
+  ['y_5fsize_1',['Y_SIZE',['../setting_8h.html#a000dee12ca9658a2ebeb974b64afd3e3',1,'setting.h']]]
 ];

@@ -40,7 +40,8 @@ var NAVTREE =
         [ "Функции", "globals_func.html", null ],
         [ "Переменные", "globals_vars.html", null ],
         [ "Перечисления", "globals_enum.html", null ],
-        [ "Элементы перечислений", "globals_eval.html", null ]
+        [ "Элементы перечислений", "globals_eval.html", null ],
+        [ "Макросы", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

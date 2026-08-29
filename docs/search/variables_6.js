@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['maxenemysize_0',['maxEnemySize',['../setting_8h.html#adfe874415282198fcfbb7637e3f5a582',1,'setting.h']]],
-  ['maxinputlen_1',['MaxInputLen',['../setting_8h.html#a22bce1c842170154825c6c070bdd3bb8',1,'setting.h']]],
-  ['maxtestlen_2',['MaxTestLen',['../setting_8h.html#ad85943376c5f3fe0397e7ab5e140df01',1,'setting.h']]]
+  ['nroots_0',['nRoots',['../structtest_unit.html#acacb650adef34b892fa4a03bcc29892e',1,'testUnit']]],
+  ['nrootsres_1',['nRootsres',['../struct_test_data.html#a24e6468c2d0776223512bc1afebe7a45',1,'TestData']]],
+  ['numenemy_2',['numEnemy',['../setting_8h.html#a588893fd8416ce856aba0c9e7005a7ed',1,'setting.h']]],
+  ['numlen_3',['NumLen',['../setting_8h.html#a2671903bba16c6b5725fbaf6b86c353b',1,'setting.h']]]
 ];

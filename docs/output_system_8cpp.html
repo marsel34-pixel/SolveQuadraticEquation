@@ -131,9 +131,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
 <tr class="memitem:add64d23e0eebdd2ec75a33c897130c82" id="r_add64d23e0eebdd2ec75a33c897130c82"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add64d23e0eebdd2ec75a33c897130c82">animationPlotInit</a> (char *toDraw)</td></tr>
 <tr class="memitem:a13990cc52dce6351a772f2a4b1f7729c" id="r_a13990cc52dce6351a772f2a4b1f7729c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a13990cc52dce6351a772f2a4b1f7729c">calcParabolaPoints</a> (int *xCoord, int *yCoord, double x, double a, double b, double c)</td></tr>
 <tr class="memitem:a6f5c87417f36c717125565e2fd0f3275" id="r_a6f5c87417f36c717125565e2fd0f3275"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6f5c87417f36c717125565e2fd0f3275">GetIndexFor1dArrayFromXandY</a> (int x, int y)</td></tr>
-<tr class="memitem:afb998de97ee8d0f21c66505726b35913" id="r_afb998de97ee8d0f21c66505726b35913"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb998de97ee8d0f21c66505726b35913">gameStep</a> (double a, double b, double c, <a class="el" href="structenemy.html">enemy</a> enemyArray[], int numEnemy)</td></tr>
+<tr class="memitem:aba965b478db9c3cb7b13e698268b7bc9" id="r_aba965b478db9c3cb7b13e698268b7bc9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aba965b478db9c3cb7b13e698268b7bc9">gameStep</a> (double a, double b, double c, <a class="el" href="structenemy.html">enemy</a> enemyArray[])</td></tr>
 <tr class="memitem:a9514ed7bbdf37973b850c5985aa8a67f" id="r_a9514ed7bbdf37973b850c5985aa8a67f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9514ed7bbdf37973b850c5985aa8a67f">setEnemy</a> (char gameScreen[], char setSymbol, <a class="el" href="structenemy.html">enemy</a> Enemy)</td></tr>
-<tr class="memitem:af9f9f5c5e5536fd0a538bdde083e2c03" id="r_af9f9f5c5e5536fd0a538bdde083e2c03"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#af9f9f5c5e5536fd0a538bdde083e2c03">findNearestEnemyToPoint</a> (<a class="el" href="structenemy.html">enemy</a> enemyArray[], int numEnemy, int x, int y)</td></tr>
+<tr class="memitem:acb3d605bb3d3ddbb04a76be9efeeca28" id="r_acb3d605bb3d3ddbb04a76be9efeeca28"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acb3d605bb3d3ddbb04a76be9efeeca28">findNearestEnemyToPoint</a> (<a class="el" href="structenemy.html">enemy</a> enemyArray[], int x, int y)</td></tr>
+<tr class="memitem:ab773b048d50676be17a232e55b3e1ef0" id="r_ab773b048d50676be17a232e55b3e1ef0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab773b048d50676be17a232e55b3e1ef0">gameStepTwoPlayer</a> (double a, double b, double c, <a class="el" href="structenemy.html">enemy</a> firstPlayerGuys[], <a class="el" href="structenemy.html">enemy</a> secondPlayerGuys[], char firstPlayerAttackSymbol, char secondPlayerAttackSymbol, char firstPlayerGuysSymbol, char secondPlayerGuysSymbol, bool isFirstStep)</td></tr>
+<tr class="memitem:a956d5061b96a9a3698af30455c43f3c5" id="r_a956d5061b96a9a3698af30455c43f3c5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a956d5061b96a9a3698af30455c43f3c5">makePlotBounce</a> (double *a, double *b, double *c, int yCoord)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
 <a id="add64d23e0eebdd2ec75a33c897130c82" name="add64d23e0eebdd2ec75a33c897130c82"></a>
@@ -273,8 +275,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
 
 </div>
 </div>
-<a id="af9f9f5c5e5536fd0a538bdde083e2c03" name="af9f9f5c5e5536fd0a538bdde083e2c03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9f9f5c5e5536fd0a538bdde083e2c03">&#9670;&#160;</a></span>findNearestEnemyToPoint()</h2>
+<a id="acb3d605bb3d3ddbb04a76be9efeeca28" name="acb3d605bb3d3ddbb04a76be9efeeca28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb3d605bb3d3ddbb04a76be9efeeca28">&#9670;&#160;</a></span>findNearestEnemyToPoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,11 +285,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
           <td class="memname">int findNearestEnemyToPoint </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structenemy.html">enemy</a></td>          <td class="paramname"><span class="paramname"><em>enemyArray</em></span>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numEnemy</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -304,8 +301,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
 
 </div>
 </div>
-<a id="afb998de97ee8d0f21c66505726b35913" name="afb998de97ee8d0f21c66505726b35913"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb998de97ee8d0f21c66505726b35913">&#9670;&#160;</a></span>gameStep()</h2>
+<a id="aba965b478db9c3cb7b13e698268b7bc9" name="aba965b478db9c3cb7b13e698268b7bc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba965b478db9c3cb7b13e698268b7bc9">&#9670;&#160;</a></span>gameStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,12 +325,68 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structenemy.html">enemy</a></td>          <td class="paramname"><span class="paramname"><em>enemyArray</em></span>[], </td>
+          <td class="paramtype"><a class="el" href="structenemy.html">enemy</a></td>          <td class="paramname"><span class="paramname"><em>enemyArray</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab773b048d50676be17a232e55b3e1ef0" name="ab773b048d50676be17a232e55b3e1ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab773b048d50676be17a232e55b3e1ef0">&#9670;&#160;</a></span>gameStepTwoPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gameStepTwoPlayer </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numEnemy</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structenemy.html">enemy</a></td>          <td class="paramname"><span class="paramname"><em>firstPlayerGuys</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structenemy.html">enemy</a></td>          <td class="paramname"><span class="paramname"><em>secondPlayerGuys</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>firstPlayerAttackSymbol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>secondPlayerAttackSymbol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>firstPlayerGuysSymbol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>secondPlayerGuysSymbol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isFirstStep</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -355,6 +408,37 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('output_system_
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a956d5061b96a9a3698af30455c43f3c5" name="a956d5061b96a9a3698af30455c43f3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a956d5061b96a9a3698af30455c43f3c5">&#9670;&#160;</a></span>makePlotBounce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void makePlotBounce </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>yCoord</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

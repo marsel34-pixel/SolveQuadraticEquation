@@ -70,4 +70,5 @@ var menudata={children:[
 {text:"s",url:"globals_func.html#index_s"}]},
 {text:"Переменные",url:"globals_vars.html"},
 {text:"Перечисления",url:"globals_enum.html"},
-{text:"Элементы перечислений",url:"globals_eval.html"}]}]}]}
+{text:"Элементы перечислений",url:"globals_eval.html"},
+{text:"Макросы",url:"globals_defs.html"}]}]}]}

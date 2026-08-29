@@ -119,10 +119,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
 <tr class="memitem:aba014fb975df0888ae1a6446e3dae929" id="r_aba014fb975df0888ae1a6446e3dae929"><td class="memItemLeft">ssize_t&#160;</td><td class="memItemRight"><a class="el" href="#aba014fb975df0888ae1a6446e3dae929">ReadTestsUnitFromFile</a> (<a class="el" href="structtest_unit.html">testUnit</a> *TestArray)</td></tr>
+<tr class="memdesc:aba014fb975df0888ae1a6446e3dae929"><td class="mdescLeft">&#160;</td><td class="mdescRight">read test from file and records in array  <br /></td></tr>
 <tr class="memitem:ad0c69590b2d2c4c27ca42fc3fb988cc8" id="r_ad0c69590b2d2c4c27ca42fc3fb988cc8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad0c69590b2d2c4c27ca42fc3fb988cc8">RunAllTestsFromArray</a> (<a class="el" href="structtest_unit.html">testUnit</a> *TestMat, size_t TestSize)</td></tr>
+<tr class="memdesc:ad0c69590b2d2c4c27ca42fc3fb988cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">read test from file and records in array  <br /></td></tr>
 <tr class="memitem:a8d7724a78f97334d3b1a38c605947a35" id="r_a8d7724a78f97334d3b1a38c605947a35"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8d7724a78f97334d3b1a38c605947a35">RunTest</a> (<a class="el" href="structtest_unit.html">testUnit</a> TestMat)</td></tr>
+<tr class="memdesc:a8d7724a78f97334d3b1a38c605947a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">run one test  <br /></td></tr>
 <tr class="memitem:a2f729309b2c01dc22f2445ac87df2baa" id="r_a2f729309b2c01dc22f2445ac87df2baa"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a2f729309b2c01dc22f2445ac87df2baa">RunAllAvaiaibleTests</a> ()</td></tr>
+<tr class="memdesc:a2f729309b2c01dc22f2445ac87df2baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">run all tests, from file and program  <br /></td></tr>
 <tr class="memitem:a9df1afd39f448678e809e974ebee4dac" id="r_a9df1afd39f448678e809e974ebee4dac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9df1afd39f448678e809e974ebee4dac">ErrorMesage</a> (<a class="el" href="structtest_unit.html">testUnit</a> TestMat, int nRoots, double x1, double x2)</td></tr>
+<tr class="memdesc:a9df1afd39f448678e809e974ebee4dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">print error message  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Переменные</h2></td></tr>
@@ -158,6 +163,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
       </table>
 </div><div class="memdoc">
 
+<p>print error message </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tesMat</td><td>the test unit where the error occurred </td></tr>
+    <tr><td class="paramname">nRoots,x1,x2</td><td>wrong test results </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aba014fb975df0888ae1a6446e3dae929" name="aba014fb975df0888ae1a6446e3dae929"></a>
@@ -175,6 +189,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
       </table>
 </div><div class="memdoc">
 
+<p>read test from file and records in array </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">testArray</td><td>array to record tests in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>if read go normal size of testArray, else -1 </dd></dl>
+
 </div>
 </div>
 <a id="a2f729309b2c01dc22f2445ac87df2baa" name="a2f729309b2c01dc22f2445ac87df2baa"></a>
@@ -191,6 +214,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>run all tests, from file and program </p>
+<dl class="section return"><dt>Возвращает</dt><dd>1 if read from file go wrong, else 0 </dd></dl>
 
 </div>
 </div>
@@ -213,6 +239,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
       </table>
 </div><div class="memdoc">
 
+<p>read test from file and records in array </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">testArray</td><td>array to record tests in </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8d7724a78f97334d3b1a38c605947a35" name="a8d7724a78f97334d3b1a38c605947a35"></a>
@@ -224,11 +258,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8cpp.html
         <tr>
           <td class="memname">int RunTest </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtest_unit.html">testUnit</a></td>          <td class="paramname"><span class="paramname"><em>TestMat</em></span></td><td>)</td>
+          <td class="paramtype">struct <a class="el" href="structtest_unit.html">testUnit</a></td>          <td class="paramname"><span class="paramname"><em>TestMat</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>run one test </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tesMat</td><td>what testing </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>1 if test go wrong, else 0 </dd></dl>
 
 </div>
 </div>

@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefgilmnoprstwxyz",
+  0: "abcdefgilmnoprstvwxyz",
   1: "et",
-  2: "cimopst",
+  2: "ceimopstv",
   3: "abcdefgimoprs",
-  4: "abcegimnstwxyz",
+  4: "abceimnstwxyz",
   5: "lns",
-  6: "abgilnort"
+  6: "abgilnort",
+  7: "bgr"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "enums",
-  6: "enumvalues"
+  6: "enumvalues",
+  7: "defines"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Функции",
   4: "Переменные",
   5: "Перечисления",
-  6: "Элементы перечислений"
+  6: "Элементы перечислений",
+  7: "Макросы"
 };
 

@@ -5,6 +5,7 @@ var main_8cpp =
       [ "test", "main_8cpp.html#a50d728b390c0df8fefdec1300097ff1caae2f19441a178e2c152715fa0c180253", null ],
       [ "AI", "main_8cpp.html#a50d728b390c0df8fefdec1300097ff1ca9c74caa56a3c05723eb1dbad44bc9bc3", null ],
       [ "game", "main_8cpp.html#a50d728b390c0df8fefdec1300097ff1ca98ed613d1d1a3c9820695fdac4f79a3d", null ],
+      [ "gameForTwo", "main_8cpp.html#a50d728b390c0df8fefdec1300097ff1ca8bd8062444cdb919f4a5818d8f9fb85c", null ],
       [ "another", "main_8cpp.html#a50d728b390c0df8fefdec1300097ff1cae9947bb8c62002e37c5062b57aa457be", null ]
     ] ],
     [ "main", "main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97", null ],
