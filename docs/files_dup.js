@@ -1,7 +1,5 @@
 var files_dup =
 [
-    [ "AI.cpp", "_a_i_8cpp.html", "_a_i_8cpp" ],
-    [ "AI.h", "_a_i_8h.html", "_a_i_8h" ],
     [ "calculation.cpp", "calculation_8cpp.html", "calculation_8cpp" ],
     [ "calculation.h", "calculation_8h.html", "calculation_8h" ],
     [ "inputSystem.cpp", "input_system_8cpp.html", "input_system_8cpp" ],
@@ -11,6 +9,9 @@ var files_dup =
     [ "marcel_test.h", "marcel__test_8h.html", "marcel__test_8h" ],
     [ "outputSystem.cpp", "output_system_8cpp.html", "output_system_8cpp" ],
     [ "outputSystem.h", "output_system_8h.html", "output_system_8h" ],
+    [ "programMods.cpp", "program_mods_8cpp.html", "program_mods_8cpp" ],
+    [ "programMods.h", "program_mods_8h.html", "program_mods_8h" ],
+    [ "setting.h", "setting_8h.html", "setting_8h" ],
     [ "test.cpp", "test_8cpp.html", "test_8cpp" ],
     [ "test.h", "test_8h.html", "test_8h" ]
 ];

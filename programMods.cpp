@@ -140,18 +140,17 @@ int randomNumberInRange(int min, int max)
 {
     return min +  rand() % (max - min);
 }
+
 void gameMode()
 {
     double a = NAN, b = NAN, c = NAN;
     bool isPlay = 1;
-    
-    const int numEnemy = 10; 
 
-    enemy enemyArray[numEnemy];
+    enemy enemyArray[numEnemy] = {};
 
-    enemyInit(enemyArray, numEnemy);
+    enemyInit(enemyArray);
     
-    gameStep(0.5, 0, 0, enemyArray, numEnemy);
+    gameStep(0.5, 0, Y_SIZE - ZeroY, enemyArray);
 
     while (isPlay)
     {
@@ -166,20 +165,13 @@ void gameMode()
             continue;
         }
 
-        gameStep(-a / 2, -b / 2, -c / 2, enemyArray, numEnemy);
+        gameStep(-a / 2, -b / 2, -c / 2, enemyArray);
 
-        isPlay = 0;
-        for (int i = 0; i < numEnemy; i++)
-        {
-            if (enemyArray[i].isAlive)
-            {
-                isPlay = 1;
-            }
-        }
+        isPlay = calcHowManyRemain(enemyArray);
     }
 }
 
-void enemyInit(enemy enemyArray[], const int numEnemy)
+void enemyInit(enemy enemyArray[])
 {   
     for (int i = 0; i < numEnemy; i++)
     {
@@ -194,7 +186,7 @@ void enemyInit(enemy enemyArray[], const int numEnemy)
             enemyArray[i].enemyPointsArray[j][0] = enemyArray[i].enemyPointsArray[neighborToNewPoint][0];
             enemyArray[i].enemyPointsArray[j][1] = enemyArray[i].enemyPointsArray[neighborToNewPoint][1];
 
-            switch (randomNumberInRange(0,4))
+            switch (randomNumberInRange(0, 4))
             {
             case 0:
                 enemyArray[i].enemyPointsArray[j][0] += 1;
@@ -211,6 +203,122 @@ void enemyInit(enemy enemyArray[], const int numEnemy)
             default:
                 break;
             }
+        }
+    }
+}
+
+void gameTwoPlyerMode() 
+{
+    double a = NAN, b = NAN, c = NAN;
+    bool isPlay = 1;
+    char firstPlayerAttackSymbol = 0, secondPlayerAttackSymbol = 0, firstPlayerGuysSymbol = 0, secondPlayerGuysSymbol = 0;
+
+    enemy firstPlayerGuys[numEnemy] = {};
+    enemy secondPlayerGuys[numEnemy] = {};
+
+    bool isFirst = 1;
+
+    enemyInit(firstPlayerGuys);
+    enemyInit(secondPlayerGuys);
+
+    firstPlayerAttackSymbol = askForSymbolToGame("What symbol will be first player attack: ");
+    firstPlayerGuysSymbol = askForSymbolToGame("What symbol will be first player guys: ");
+
+    secondPlayerAttackSymbol = askForSymbolToGame("What symbol will be second player attack: ");
+    secondPlayerGuysSymbol = askForSymbolToGame("What symbol will be second player guys: ");
+
+    gameStepTwoPlayer(0.5, 0, Y_SIZE - ZeroY-1, firstPlayerGuys, secondPlayerGuys, 
+                    firstPlayerAttackSymbol, secondPlayerAttackSymbol, firstPlayerGuysSymbol, secondPlayerGuysSymbol, isFirst);
+
+    while (isPlay)
+    {
+        putchar('\n');
+        if (isFirst)
+        {
+            printf("First player move\n");
+        }
+        else
+        {
+            printf("Second player move\n");
+        }
+
+        isFirst = !isFirst;
+
+        if (readCoeficientsFromEquation(&a, &b, &c) == 1)
+        {
+            continue;
+        }
+        if (isZero(a))
+        {
+            printf("Its to easy, try make parabola");
+            continue;
+        }
+
+        gameStepTwoPlayer(-a / 2, -b / 2, -c / 2, firstPlayerGuys, secondPlayerGuys, 
+                        firstPlayerAttackSymbol, secondPlayerAttackSymbol, firstPlayerGuysSymbol, secondPlayerGuysSymbol, isFirst);
+
+        putchar('\n');
+        isPlay = checkEndGameForTwoPlayer(firstPlayerGuys, secondPlayerGuys);
+    }
+}
+
+int calcHowManyRemain(enemy enemyArray[])
+{
+    int howManyReamin = 0;
+    for (int i = 0; i < numEnemy; i++)
+    {
+        if (enemyArray[i].isAlive)
+        {
+            howManyReamin++;
+        }
+    }
+    return howManyReamin;
+}
+
+char askForSymbolToGame(const char text[])
+{
+    printf("%s",text);
+    int ch = getchar();
+    while (ch == ' ' || ch == 0 || ch == '|' || ch == '_')
+    {
+        printf("You cant use this symbol");
+        clearInput();
+        ch = getchar();
+    }
+    clearInput();
+    putchar('\n');
+    return (char)ch;
+}
+
+bool checkEndGameForTwoPlayer(enemy firstPlayerGuys[], enemy secondPlayerGuys[])
+{
+    int howManyRemainFirstGuys = calcHowManyRemain(firstPlayerGuys);
+        if (howManyRemainFirstGuys < 3)
+        {
+            printf("first lose");
+            return 0;
+        }
+        int howManyRemainSecondGuys = calcHowManyRemain(secondPlayerGuys);
+        if (howManyRemainSecondGuys < 3)
+        {
+            printf("second lose");
+            return 0;
+        }
+        
+        printf("First player guys: %d\n", howManyRemainFirstGuys);
+        printf("Second player guys: %d\n", howManyRemainSecondGuys);
+        return 1;
+}
+
+void AIEnemy(enemy EnemyArray[], double *a, double *b, double *c)
+{
+    *a = randomNumberInRange(0,300) / 100.0;
+    *b = randomNumberInRange(0,3000) / 100.0;
+    for (int i = 0; i < numEnemy; i++)
+    {
+        if (EnemyArray[i].isAlive)
+        {
+            *c = EnemyArray[i].y - EnemyArray[i].x * EnemyArray[i].x * (*a) -EnemyArray[i].x * (*b);
         }
     }
 }

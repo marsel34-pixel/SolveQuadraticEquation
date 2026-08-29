@@ -117,23 +117,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
 <tr class="memitem:a237df6aa0589402c8da9894ef1131870" id="r_a237df6aa0589402c8da9894ef1131870"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a237df6aa0589402c8da9894ef1131870">readSingleCoeficient</a> (double *a)</td></tr>
-<tr class="memdesc:a237df6aa0589402c8da9894ef1131870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memdesc:a237df6aa0589402c8da9894ef1131870"><td class="mdescLeft">&#160;</td><td class="mdescRight">цикл пока не получится взять число из консоли  <br /></td></tr>
+<tr class="memitem:afb9990f9ed5b6dea69bec8bf5bc47c06" id="r_afb9990f9ed5b6dea69bec8bf5bc47c06"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#afb9990f9ed5b6dea69bec8bf5bc47c06">findPowerX</a> (char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool side)</td></tr>
+<tr class="memdesc:afb9990f9ed5b6dea69bec8bf5bc47c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">ищет член для числа  <br /></td></tr>
 <tr class="memitem:a8b46ea78a29127b13786cef47c94ed93" id="r_a8b46ea78a29127b13786cef47c94ed93"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8b46ea78a29127b13786cef47c94ed93">checkLeftForPower</a> (char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound)</td></tr>
-<tr class="memdesc:a8b46ea78a29127b13786cef47c94ed93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
-<tr class="memitem:a72af8b29716582fde7923a8ac2d8c008" id="r_a72af8b29716582fde7923a8ac2d8c008"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a72af8b29716582fde7923a8ac2d8c008">findPowerX</a> (char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool Left)</td></tr>
-<tr class="memdesc:a72af8b29716582fde7923a8ac2d8c008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memdesc:a8b46ea78a29127b13786cef47c94ed93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вспомогательная функция, ищет член слева по индексу  <br /></td></tr>
 <tr class="memitem:a307ca69a56b984f888349c58ca15918c" id="r_a307ca69a56b984f888349c58ca15918c"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a307ca69a56b984f888349c58ca15918c">checkRightForPower</a> (char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound)</td></tr>
+<tr class="memdesc:a307ca69a56b984f888349c58ca15918c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вспомогательная функция, ищет член справа по индексу  <br /></td></tr>
 <tr class="memitem:a7d500357dbc1cc799f28873a8e9ccc15" id="r_a7d500357dbc1cc799f28873a8e9ccc15"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7d500357dbc1cc799f28873a8e9ccc15">setCoef</a> (char *EquationStr, int startN, int endN, double *buffCoof, double *a, double *b, double *c)</td></tr>
+<tr class="memdesc:a7d500357dbc1cc799f28873a8e9ccc15"><td class="mdescLeft">&#160;</td><td class="mdescRight">анализирует соседные для числа члены, и прибавляет нужное значение нужному коэфициенту  <br /></td></tr>
 <tr class="memitem:aedcdb141569f551bc4c5fd7880e715d7" id="r_aedcdb141569f551bc4c5fd7880e715d7"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aedcdb141569f551bc4c5fd7880e715d7">findCoefsFromStr</a> (char *EquationStr, double *a, double *b, double *c)</td></tr>
+<tr class="memdesc:aedcdb141569f551bc4c5fd7880e715d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ищет числа в строке и записывает их в в нужные коэфициенты, благодаря рядом стоящим членам  <br /></td></tr>
 <tr class="memitem:a1e44239da931e7c58cbc976a7f123a04" id="r_a1e44239da931e7c58cbc976a7f123a04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1e44239da931e7c58cbc976a7f123a04">readCoefs</a> (double *a, double *b, double *c)</td></tr>
+<tr class="memdesc:a1e44239da931e7c58cbc976a7f123a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Читает пооочередно 3 коэфициента из консоли  <br /></td></tr>
 <tr class="memitem:a15f14225490a30d3d821fada9e767b72" id="r_a15f14225490a30d3d821fada9e767b72"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a15f14225490a30d3d821fada9e767b72">readCoeficientsFromEquation</a> (double *a, double *b, double *c)</td></tr>
+<tr class="memdesc:a15f14225490a30d3d821fada9e767b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Читает уравнение из консоли и засовывает их в коэфициенты  <br /></td></tr>
 <tr class="memitem:a70e5fab262014d6e6822a6ba63f536b6" id="r_a70e5fab262014d6e6822a6ba63f536b6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a70e5fab262014d6e6822a6ba63f536b6">askAboutChoise</a> (const char *text)</td></tr>
-<tr class="memdesc:a70e5fab262014d6e6822a6ba63f536b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point.  <br /></td></tr>
+<tr class="memdesc:a70e5fab262014d6e6822a6ba63f536b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Спрашивает Y/N Будет работать пока не получит ответа  <br /></td></tr>
 <tr class="memitem:a5d555657ce648c1a47abb70f1029589d" id="r_a5d555657ce648c1a47abb70f1029589d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d555657ce648c1a47abb70f1029589d">clearInput</a> ()</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Переменные</h2></td></tr>
-<tr class="memitem:a22bce1c842170154825c6c070bdd3bb8" id="r_a22bce1c842170154825c6c070bdd3bb8"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#a22bce1c842170154825c6c070bdd3bb8">MaxInputLen</a> = 256</td></tr>
+<tr class="memdesc:a5d555657ce648c1a47abb70f1029589d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Очищает вывод до следуйщего "\n".  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
 <a id="a70e5fab262014d6e6822a6ba63f536b6" name="a70e5fab262014d6e6822a6ba63f536b6"></a>
@@ -151,16 +153,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
-<p>Entry point. </p>
-<p>Execution of the program starts here.</p>
+<p>Спрашивает Y/N Будет работать пока не получит ответа </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+    <tr><td class="paramname">text</td><td>текст перед вопросом</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>если Y возвращает 1, если N то 0 </dd></dl>
 
 </div>
 </div>
@@ -193,16 +193,23 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
-<p>Entry point. </p>
-<p>Execution of the program starts here.</p>
+<p>Вспомогательная функция, ищет член слева по индексу </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">EquationStr</td><td>строка в которой ищется член </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">IndexStrForCheck</td><td>индекс который проверяют на член, в случае нахождения перескакивает на его конец </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">foundPowerX</td><td>записывает степень найденного члена </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">xWasFound</td><td>записывает был ли найден член</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -235,6 +242,24 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
+<p>Вспомогательная функция, ищет член справа по индексу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">EquationStr</td><td>строка в которой ищется член </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">IndexStrForCheck</td><td>индекс который проверяют на член, в случае нахождения перескакивает на его конец </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">foundPowerX</td><td>записывает степень найденного члена </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">xWasFound</td><td>записывает был ли найден член</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5d555657ce648c1a47abb70f1029589d" name="a5d555657ce648c1a47abb70f1029589d"></a>
@@ -251,6 +276,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Очищает вывод до следуйщего "\n". </p>
 
 </div>
 </div>
@@ -283,10 +310,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
+<p>Ищет числа в строке и записывает их в в нужные коэфициенты, благодаря рядом стоящим членам </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">EquationStr</td><td>анализируемая строка </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>записыывается полученное значение</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a72af8b29716582fde7923a8ac2d8c008" name="a72af8b29716582fde7923a8ac2d8c008"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72af8b29716582fde7923a8ac2d8c008">&#9670;&#160;</a></span>findPowerX()</h2>
+<a id="afb9990f9ed5b6dea69bec8bf5bc47c06" name="afb9990f9ed5b6dea69bec8bf5bc47c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9990f9ed5b6dea69bec8bf5bc47c06">&#9670;&#160;</a></span>findPowerX()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,21 +369,31 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>Left</em></span>&#160;)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>side</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Entry point. </p>
-<p>Execution of the program starts here.</p>
+<p>ищет член для числа </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>List of arguments</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">EquationStr</td><td>анализируемая строка </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">startN</td><td>индекс начала числа, для которого ищется член </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">startN</td><td>индекс конца числа, для которого ищется член </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">terWasFound</td><td>был ли уже найден член </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">foundPowerX</td><td>степень найденного члена </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffCoef</td><td>указатель на значение числа, которое будут прибавляться одному из коэфициентов </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">side</td><td>выбор направления проверки лево или право </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -366,6 +421,23 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
+<p>Читает уравнение из консоли и засовывает их в коэфициенты </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>записыывается полученное значение</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1e44239da931e7c58cbc976a7f123a04" name="a1e44239da931e7c58cbc976a7f123a04"></a>
@@ -392,6 +464,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
+<p>Читает пооочередно 3 коэфициента из консоли </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>записыывается полученное значение </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a237df6aa0589402c8da9894ef1131870" name="a237df6aa0589402c8da9894ef1131870"></a>
@@ -409,15 +491,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
-<p>Entry point. </p>
+<p>цикл пока не получится взять число из консоли </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
-    <tr><td class="paramname">argv</td><td>List of arguments </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>записыывается полученное значение </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Program exit status </dd></dl>
 
 </div>
 </div>
@@ -465,20 +545,26 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('input_system_8
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Переменные</h2>
-<a id="a22bce1c842170154825c6c070bdd3bb8" name="a22bce1c842170154825c6c070bdd3bb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22bce1c842170154825c6c070bdd3bb8">&#9670;&#160;</a></span>MaxInputLen</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int MaxInputLen = 256</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>анализирует соседные для числа члены, и прибавляет нужное значение нужному коэфициенту </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">EquationStr</td><td>анализируемая строка </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">startN</td><td>индекс начала числа, для которого ищется член </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">startN</td><td>индекс конца числа, для которого ищется член </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffCoef</td><td>указатель на значение числа, которое будут прибавляться одному из коэфициентов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">b</td><td>записыывается полученное значение </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>записыывается полученное значение</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Все прошло успешно </td></tr>
+    <tr><td class="paramname">1</td><td>Ошибка в чтении уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

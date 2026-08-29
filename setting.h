@@ -6,9 +6,9 @@ const int Y_SIZE = 53;
 const int ZeroX = 50;
 const int ZeroY = 26;
 
-const char greenColor[] = "\033[31m";
-const char BaseColor[] = "\033[m";
-
+#define greenColor "\033[31m"
+#define BaseColor "\033[m"
+#define returnToStart "\033[H"
 const int NumLen = 100;
 const double step = 0.01;
 
@@ -18,6 +18,8 @@ const int MaxTestLen = 100;
 const int MaxInputLen = 256;
 
 const int maxEnemySize = 30;
+
+const int numEnemy = 8; 
 
 struct testUnit
 {
@@ -42,5 +44,41 @@ enum NumRoots
     InfRoots = -1
 };
 
+// char vadim[][5] = {"ebal"};
+// char sigma[][1][25] = {{"                       \n",
+//                         "                       \                               n",
+//                         "                       \n",
+//                         "                       \n",
+//                         "~~~~~~~~~~~~~~~~~~~~~~~\n",
+//                         "/|///||//||/|||//|//|/|\n"}};
+
+//                     {{"     @@@               \n"},
+//                      {"                       \n"},
+//                      {"                       \n"},
+//                      {"                       \n"},
+//                      {"~~~~~~~~~~~~~~~~~~~~~~~\n"},
+//                      {"|/||////|||/|/|||///||/\n"}},
+
+//                     {{"    @@@@@              \n"},
+//                      {"     @@@               \n"},
+//                      {"                       \n"},
+//                      {"                       \n"},
+//                      {"~~~~~~~~~~~~~~~~~~~~~~~\n"},
+//                      {"/|///||//||/|||//|//|/|\n"}},
+                    
+//                     {{"     @@@               \n"},
+//                      {"    @@@@@              \n"},
+//                      {"     @@@               \n"},
+//                      {"                       \n"},
+//                      {"~~~~~~~~~~~~~~~~~~~~~~~\n"},
+//                      {"|/||////|||/|/|||///||/\n"}},
+
+//                     {{"                       \n"},
+//                      {"     @@@               \n"},
+//                      {"    @@@@@              \n"},
+//                      {"     @@@               \n"},
+//                      {"~~~~~~~~~~~~~~~~~~~~~~~\n"},
+//                      {"|/||////|||/|/|||///||/\n"}}
+//                 };
 
 #endif

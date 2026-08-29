@@ -3,7 +3,9 @@
 
 #include "setting.h"
 
-int findNearestEnemyToPoint(enemy enemyArray[], int numEnemy, int x, int y);
+void makePlotBounce(double *a, double *b, double *c, int yCoord);
+
+int findNearestEnemyToPoint(enemy enemyArray[], int x, int y);
 
 void setEnemy(char gameScreen[], char setSymbol, enemy Enemy);
 
@@ -27,6 +29,9 @@ void plotQuadratics(double a, double b, double c, double x1, double x2);
 
 void printRoots(int nRoots, double x1, double x2);
 
-void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy);
+void gameStep(double a, double b, double c, enemy enemyArray[]);
+
+void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], enemy secondPlayerGuys[], 
+                        char firstPlayerAttackSymbol, char secondPlayerAttackSymbol, char firstPlayerGuysSymbol, char secondPlayerGuysSymbol, bool isFirstStep);
 
 #endif

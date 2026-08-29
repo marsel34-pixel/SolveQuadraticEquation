@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['infroots_0',['InfRoots',['../calculation_8h.html#afa5115866adc05f4d7b0fd1107c6be3fac68d3b603c25e8249b83604ee5c3521c',1,'calculation.h']]]
+  ['ai_0',['AI',['../main_8cpp.html#a50d728b390c0df8fefdec1300097ff1ca9c74caa56a3c05723eb1dbad44bc9bc3',1,'main.cpp']]],
+  ['another_1',['another',['../main_8cpp.html#a50d728b390c0df8fefdec1300097ff1cae9947bb8c62002e37c5062b57aa457be',1,'main.cpp']]]
 ];

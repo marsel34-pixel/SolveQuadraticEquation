@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['left_0',['Left',['../input_system_8cpp.html#adde67e0b9b1675d66f465c46866d2e7ba9d4d8b0b72fc2659da772d761a3c5ecb',1,'inputSystem.cpp']]]
+  ['basic_0',['basic',['../main_8cpp.html#a50d728b390c0df8fefdec1300097ff1ca94c3facd4fc52de1d46fd692ac82aff7',1,'main.cpp']]]
 ];

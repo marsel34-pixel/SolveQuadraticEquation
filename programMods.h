@@ -3,7 +3,15 @@
 
 #include "setting.h"
 
-void enemyInit(enemy enemyArray[], const int numEnemy);
+void AIEnemy(enemy EnemyArray[], double *a, double *b, double *c);
+
+bool checkEndGameForTwoPlayer(enemy firstPlayerGuys[], enemy secondPlayerGuys[]);
+
+char askForSymbolToGame(const char text[]);
+
+void enemyInit(enemy enemyArray[]);
+
+int calcHowManyRemain(enemy enemyArray[]);
 
 int randomNumberInRange(int min, int max);
 
@@ -18,5 +26,7 @@ void infinityDontUnderstand(int *tokens);
 void basicProgramm();
 
 void AIUltraProgramm();
+
+void gameTwoPlyerMode();
 
 #endif

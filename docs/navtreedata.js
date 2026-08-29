@@ -48,7 +48,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_i_8cpp.html"
+"annotated.html"
 ];
 
 const SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

@@ -111,13 +111,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8h.html',
   <div class="headertitle"><div class="title">Файл test.h</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="setting_8h_source.html">setting.h</a>&quot;</code><br />
+</div>
 <p><a href="test_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Классы</h2></td></tr>
-<tr class="memitem:testUnit" id="r_testUnit"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structtest_unit.html">testUnit</a></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
 <tr class="memitem:aba014fb975df0888ae1a6446e3dae929" id="r_aba014fb975df0888ae1a6446e3dae929"><td class="memItemLeft">ssize_t&#160;</td><td class="memItemRight"><a class="el" href="#aba014fb975df0888ae1a6446e3dae929">ReadTestsUnitFromFile</a> (<a class="el" href="structtest_unit.html">testUnit</a> *TestArray)</td></tr>
@@ -125,12 +122,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8h.html',
 <tr class="memitem:a9df1afd39f448678e809e974ebee4dac" id="r_a9df1afd39f448678e809e974ebee4dac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9df1afd39f448678e809e974ebee4dac">ErrorMesage</a> (<a class="el" href="structtest_unit.html">testUnit</a> TestMat, int nRoots, double x1, double x2)</td></tr>
 <tr class="memitem:a9dd326ca13d9ff85e2e21b6700c80e68" id="r_a9dd326ca13d9ff85e2e21b6700c80e68"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a9dd326ca13d9ff85e2e21b6700c80e68">RunTest</a> (struct <a class="el" href="structtest_unit.html">testUnit</a> TestMat)</td></tr>
 <tr class="memitem:a2f729309b2c01dc22f2445ac87df2baa" id="r_a2f729309b2c01dc22f2445ac87df2baa"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a2f729309b2c01dc22f2445ac87df2baa">RunAllAvaiaibleTests</a> ()</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Переменные</h2></td></tr>
-<tr class="memitem:a15d033a6add569199921218d26bd92c3" id="r_a15d033a6add569199921218d26bd92c3"><td class="memItemLeft">const char&#160;</td><td class="memItemRight"><a class="el" href="#a15d033a6add569199921218d26bd92c3">greenColor</a> [] = &quot;\033[31m&quot;</td></tr>
-<tr class="memitem:a85b483d9d817a34494602a7339074cde" id="r_a85b483d9d817a34494602a7339074cde"><td class="memItemLeft">const char&#160;</td><td class="memItemRight"><a class="el" href="#a85b483d9d817a34494602a7339074cde">BaseColor</a> [] = &quot;\033[m&quot;</td></tr>
-<tr class="memitem:ad85943376c5f3fe0397e7ab5e140df01" id="r_ad85943376c5f3fe0397e7ab5e140df01"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#ad85943376c5f3fe0397e7ab5e140df01">MaxTestLen</a> = 1000</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
 <a id="a9df1afd39f448678e809e974ebee4dac" name="a9df1afd39f448678e809e974ebee4dac"></a>
@@ -230,49 +221,6 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('test_8h.html',
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structtest_unit.html">testUnit</a></td>          <td class="paramname"><span class="paramname"><em>TestMat</em></span></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Переменные</h2>
-<a id="a85b483d9d817a34494602a7339074cde" name="a85b483d9d817a34494602a7339074cde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85b483d9d817a34494602a7339074cde">&#9670;&#160;</a></span>BaseColor</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char BaseColor[] = &quot;\033[m&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a15d033a6add569199921218d26bd92c3" name="a15d033a6add569199921218d26bd92c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15d033a6add569199921218d26bd92c3">&#9670;&#160;</a></span>greenColor</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char greenColor[] = &quot;\033[31m&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad85943376c5f3fe0397e7ab5e140df01" name="ad85943376c5f3fe0397e7ab5e140df01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad85943376c5f3fe0397e7ab5e140df01">&#9670;&#160;</a></span>MaxTestLen</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int MaxTestLen = 1000</td>
         </tr>
       </table>
 </div><div class="memdoc">

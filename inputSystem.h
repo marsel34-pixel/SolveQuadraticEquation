@@ -9,18 +9,7 @@
 */
 void readSingleCoeficient(double *a);
 
-/**
- * @brief 
- *
- * Execution of the program
- * starts here.
- *
- * @param argc Number of arguments
- * @param argv List of arguments
- *
- * @return Program exit status
- */
-int checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
+
 
 /**
 * @brief ищет член для числа 
@@ -37,6 +26,32 @@ int checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX
 */
 int findPowerX(char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool side);
 
+/**
+ * @brief Вспомогательная функция, ищет член слева по индексу
+ *
+ *
+ * @param[in] EquationStr строка в которой ищется член
+ * @param[in, out] IndexStrForCheck индекс который проверяют на член, в случае нахождения перескакивает на его конец
+ * @param[out] foundPowerX записывает степень найденного члена
+ * @param[out] xWasFound записывает был ли найден член
+ *
+* @retval 0 Все прошло успешно
+* @retval 1 Ошибка в чтении уравнения
+ */
+int checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
+
+/**
+ * @brief Вспомогательная функция, ищет член справа по индексу
+ *
+ *
+ * @param[in] EquationStr строка в которой ищется член
+ * @param[in, out] IndexStrForCheck индекс который проверяют на член, в случае нахождения перескакивает на его конец
+ * @param[out] foundPowerX записывает степень найденного члена
+ * @param[out] xWasFound записывает был ли найден член
+ *
+* @retval 0 Все прошло успешно
+* @retval 1 Ошибка в чтении уравнения
+ */
 int checkRightForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
 
 /**
@@ -46,9 +61,9 @@ int checkRightForPower(char *EquationStr, int *IndexStrForCheck, int *foundPower
 * @param startN индекс начала числа, для которого ищется член
 * @param startN индекс конца числа, для которого ищется член
 * @param[in] buffCoef указатель на значение числа, которое будут прибавляться одному из коэфициентов
-* @param[out] a записыывается полученное значение
-* @param[out] b записыывается полученное значение
-* @param[out] c записыывается полученное значение
+* @param[out] a записывается полученное значение
+* @param[out] b записывается полученное значение
+* @param[out] c записывается полученное значение
 *
 * 
 * @retval 0 Все прошло успешно
@@ -60,9 +75,9 @@ int setCoef(char *EquationStr, int startN, int endN, double *buffCoof, double *a
 * @brief Ищет числа в строке и записывает их в в нужные коэфициенты, благодаря рядом стоящим членам
 *
 * @param[in] EquationStr анализируемая строка
-* @param[out] a записыывается полученное значение
-* @param[out] b записыывается полученное значение
-* @param[out] c записыывается полученное значение
+* @param[out] a записывается полученное значение
+* @param[out] b записывается полученное значение
+* @param[out] c записывается полученное значение
 *
 * @retval 0 Все прошло успешно
 * @retval 1 Ошибка в чтении уравнения
@@ -71,18 +86,18 @@ int findCoefsFromStr(char *EquationStr, double *a, double *b, double *c);
 
 /**
 * @brief Читает пооочередно 3 коэфициента из консоли 
-* @param[out] a записыывается полученное значение
-* @param[out] b записыывается полученное значение
-* @param[out] c записыывается полученное значение
+* @param[out] a записывается полученное значение
+* @param[out] b записывается полученное значение
+* @param[out] c записывается полученное значение
 */
 void readCoefs(double *a, double *b, double *c);
 
 /**
 * @brief Читает уравнение из консоли и засовывает их в коэфициенты
 *
-* @param[out] a записыывается полученное значение
-* @param[out] b записыывается полученное значение
-* @param[out] c записыывается полученное значение
+* @param[out] a записывается полученное значение
+* @param[out] b записывается полученное значение
+* @param[out] c записывается полученное значение
 *
 * @retval 0 Все прошло успешно
 * @retval 1 Ошибка в чтении уравнения
@@ -93,7 +108,7 @@ int readCoeficientsFromEquation(double *a, double *b, double *c);
  * @brief Спрашивает Y/N 
  *  Будет работать пока не получит ответа
  *
- * @param text текст перед вопросом
+ * @param text текст вопросa
  *
  * @return если Y возвращает 1, если N то 0
  */

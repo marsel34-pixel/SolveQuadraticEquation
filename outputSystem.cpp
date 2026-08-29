@@ -92,7 +92,7 @@ void drawGraphicFromArray(char StaticPlotArray[][X_SIZE])
         {
             if (StaticPlotArray[y][x] == symbolForParabola)
             {
-                printf("%s%c%s", greenColor, symbolForParabola, BaseColor);
+                printf("greenColor%cBaseColor", symbolForParabola);
             }
             else
             {
@@ -123,7 +123,7 @@ void drawAnimationGraph(double a, double b, double c)
         
         toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForParabola; 
         
-        printf("\033[H");
+        printf(returnToStart);
         
         fwrite(toDraw, sizeof(toDraw[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
         Sleep(20);
@@ -189,7 +189,7 @@ int GetIndexFor1dArrayFromXandY(int x, int y)
     return y * (X_SIZE + 1) + x;
 }
 
-void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy)
+void gameStep(double a, double b, double c, enemy enemyArray[])
 {
     char gameScreen[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
     int xCoord = 0, yCoord = 0;
@@ -204,10 +204,10 @@ void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy)
         }
     }
 
-    for (double i = 0; i < X_SIZE; i += step)
+    for (double x = 0; x < X_SIZE; x += step)
     {
-        calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
-
+        calcParabolaPoints(&xCoord, &yCoord, x, a, b, c);
+        
         int NowIndex = GetIndexFor1dArrayFromXandY(xCoord, yCoord);
         if (gameScreen[NowIndex] == symbolForParabola || yCoord == 0)
         {
@@ -215,15 +215,17 @@ void gameStep(double a, double b, double c, enemy enemyArray[], int numEnemy)
         }
         else if (gameScreen[NowIndex] == '@')
         {
-            int indexNearestEnemy = findNearestEnemyToPoint(enemyArray, numEnemy, xCoord, yCoord);
+            int indexNearestEnemy = findNearestEnemyToPoint(enemyArray, xCoord, yCoord);
 
             setEnemy(gameScreen, ' ', enemyArray[indexNearestEnemy]);
             enemyArray[indexNearestEnemy].isAlive = 0;
+
+            makePlotBounce(&a, &b, &c, yCoord);
         }
 
         gameScreen[NowIndex] = symbolForParabola; 
         
-        printf("\033[H");
+        printf(returnToStart);
         fwrite(gameScreen, sizeof(gameScreen[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
         Sleep(20);
     }    
@@ -237,7 +239,7 @@ void setEnemy(char gameScreen[], char setSymbol, enemy Enemy)
     }
 }
 
-int findNearestEnemyToPoint(enemy enemyArray[], int numEnemy, int x, int y)
+int findNearestEnemyToPoint(enemy enemyArray[], int x, int y)
 {
     double minDistToEnemy = 12000;
     int indexNearestEnemy = 0;
@@ -256,4 +258,71 @@ int findNearestEnemyToPoint(enemy enemyArray[], int numEnemy, int x, int y)
     }
 
     return indexNearestEnemy;
+}
+
+void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], enemy secondPlayerGuys[], 
+                        char firstPlayerAttackSymbol, char secondPlayerAttackSymbol, char firstPlayerGuysSymbol, char secondPlayerGuysSymbol, bool isFirstStep)
+{
+    char gameScreen[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
+    int xCoord = 0, yCoord = 0;
+    
+    animationPlotInit(gameScreen);
+
+    for (int i = 0; i < numEnemy; i++)
+    {
+        if (firstPlayerGuys[i].isAlive)
+        {
+            setEnemy(gameScreen, firstPlayerGuysSymbol, firstPlayerGuys[i]);
+        }
+    }
+    for (int i = 0; i < numEnemy; i++)
+    {
+        if (secondPlayerGuys[i].isAlive)
+        {
+            setEnemy(gameScreen, secondPlayerGuysSymbol, secondPlayerGuys[i]);
+        }
+    }
+
+    for (double i = 0; i < X_SIZE; i += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
+        
+        
+        int NowIndex = GetIndexFor1dArrayFromXandY(xCoord, yCoord);
+        if (gameScreen[NowIndex] == (isFirstStep ? firstPlayerAttackSymbol : secondPlayerAttackSymbol) || yCoord == 0)
+        {
+            continue;
+        }
+        else if (gameScreen[NowIndex] == firstPlayerGuysSymbol)
+        {
+            int indexNearestEnemy = findNearestEnemyToPoint(firstPlayerGuys, xCoord, yCoord);
+
+            setEnemy(gameScreen, ' ', firstPlayerGuys[indexNearestEnemy]);
+            firstPlayerGuys[indexNearestEnemy].isAlive = 0;
+            makePlotBounce(&a, &b, &c, yCoord);
+        }
+        else if (gameScreen[NowIndex] == secondPlayerGuysSymbol)
+        {
+            int indexNearestEnemy = findNearestEnemyToPoint(secondPlayerGuys, xCoord, yCoord);
+
+            setEnemy(gameScreen, ' ', secondPlayerGuys[indexNearestEnemy]);
+            secondPlayerGuys[indexNearestEnemy].isAlive = 0;
+            makePlotBounce(&a, &b, &c, yCoord);
+        }
+        
+        gameScreen[NowIndex] = isFirstStep ? firstPlayerAttackSymbol : secondPlayerAttackSymbol; 
+        
+        printf(returnToStart);
+        fwrite(gameScreen, sizeof(gameScreen[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
+        //Beep(-(yCoord-ZeroY)*150,20);
+        Sleep(20);
+    }    
+}
+
+void makePlotBounce(double *a, double *b, double *c, int yCoord)
+{
+    *a = -*a;
+    *c = -*c;
+    *b = -*b;
+    *c += 2*(yCoord-ZeroY);
 }

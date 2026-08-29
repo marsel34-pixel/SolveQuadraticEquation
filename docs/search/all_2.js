@@ -4,9 +4,9 @@ var searchData=
   ['calcparabolapoints_1',['calcParabolaPoints',['../output_system_8cpp.html#a13990cc52dce6351a772f2a4b1f7729c',1,'calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c):&#160;outputSystem.cpp'],['../output_system_8h.html#a13990cc52dce6351a772f2a4b1f7729c',1,'calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c):&#160;outputSystem.cpp']]],
   ['calculation_2ecpp_2',['calculation.cpp',['../calculation_8cpp.html',1,'']]],
   ['calculation_2eh_3',['calculation.h',['../calculation_8h.html',1,'']]],
-  ['cartminnumber_4',['cartMinNumber',['../_a_i_8cpp.html#ae7eccda36e86d0b2bc5423d1b2c730a9',1,'AI.cpp']]],
+  ['cartminnumber_4',['cartMinNumber',['../program_mods_8cpp.html#ae7eccda36e86d0b2bc5423d1b2c730a9',1,'programMods.cpp']]],
   ['checkleftforpower_5',['checkLeftForPower',['../input_system_8cpp.html#ac69f7f6ec7841771bb6e05556da9f3a0',1,'checkLeftForPower(char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound):&#160;inputSystem.cpp'],['../input_system_8h.html#a8b46ea78a29127b13786cef47c94ed93',1,'checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound):&#160;inputSystem.cpp']]],
   ['checkrightforpower_6',['checkRightForPower',['../input_system_8cpp.html#a7e7209e0db63ecbbfc668287bc1c514e',1,'checkRightForPower(char *EquationStr, int *strIdx, int *foundPowerX, bool *xWasFound):&#160;inputSystem.cpp'],['../input_system_8h.html#a307ca69a56b984f888349c58ca15918c',1,'checkRightForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound):&#160;inputSystem.cpp']]],
-  ['checktokens_7',['checkTokens',['../_a_i_8cpp.html#a32f84873126b65382e6b1fc9ec077707',1,'checkTokens(int *tokens):&#160;AI.cpp'],['../_a_i_8h.html#a32f84873126b65382e6b1fc9ec077707',1,'checkTokens(int *tokens):&#160;AI.cpp']]],
+  ['checktokens_7',['checkTokens',['../program_mods_8cpp.html#a32f84873126b65382e6b1fc9ec077707',1,'checkTokens(int *tokens):&#160;programMods.cpp'],['../program_mods_8h.html#a32f84873126b65382e6b1fc9ec077707',1,'checkTokens(int *tokens):&#160;programMods.cpp']]],
   ['clearinput_8',['clearInput',['../input_system_8cpp.html#a5d555657ce648c1a47abb70f1029589d',1,'clearInput():&#160;inputSystem.cpp'],['../input_system_8h.html#a5d555657ce648c1a47abb70f1029589d',1,'clearInput():&#160;inputSystem.cpp']]]
 ];
