@@ -31,11 +31,7 @@ int main(int argc, char *argv[])
     switch (selectMode(argc, argv))
     {
         case basic:
-            //basicCalc();
-            //AIUltraProgramm();
-            //gameMode();
-            gameTwoPlyerMode();
-            //basicProgramm();
+            basicProgramm();
             break;   
 
         case test:
