@@ -4,88 +4,103 @@
 #include "setting.h"
 
 /**
-* @brief AI makes move
-*
-* @param EnemyArray[] array of enemy for AI
-* @param[out] a put coeficient from AI in
-* @param[out] b put coeficient from AI in
-* @param[out] c put coeficient from AI in
-*/
+ * @brief Makes a move for the AI.
+ *
+ * This function computes the coefficients a, b, and c based on the current
+ * state of the enemy array to determine the AI's action.
+ *
+ * @param EnemyArray Array of enemy objects used by the AI for decision making.
+ * @param[out] a Pointer to store the first coefficient (AI output).
+ * @param[out] b Pointer to store the second coefficient (AI output).
+ * @param[out] c Pointer to store the third coefficient (AI output).
+ */
 void AIEnemy(enemy EnemyArray[], double *a, double *b, double *c);
 
 /**
-* @brief checks whether the game should end
-*
-* @param firstPlayerGuys[] Player 1's array of guys
-* @param secondPlayerGuys[] Player 2'nd array of guys
-* @return 1 if game end, else 0
-*/
+ * @brief Checks whether the two‑player game should end.
+ *
+ * The game ends when one player has no alive units left.
+ *
+ * @param firstPlayerGuys Array of the first player's units.
+ * @param secondPlayerGuys Array of the second player's units.
+ * @return 1 if the game should end, otherwise 0.
+ */
 bool checkEndGameForTwoPlayer(enemy firstPlayerGuys[], enemy secondPlayerGuys[]);
 
 /**
-* @brief write text, ask for symbol
-*
-* @param text write this text
-* @return char symbol what was write
-*/
+ * @brief Displays a text prompt and asks the user to enter a symbol.
+ *
+ * @param text The prompt text to display.
+ * @return The character entered by the user.
+ */
 char askForSymbolToGame(const char text[]);
 
 /**
-* @brief init enemy
-*
-* @param enemyArray[] to init
-*/
+ * @brief Initialises the enemy array with default values.
+ *
+ * @param enemyArray The array to be initialised.
+ */
 void enemyInit(enemy enemyArray[]);
 
 /**
-* @brief calculate how many alive enemy reamin
-*
-* @param enemyArray array to calculate
-* @return number of alive enemy
-*/
+ * @brief Counts how many enemies are still alive in the array.
+ *
+ * @param enemyArray The array to examine.
+ * @return The number of alive enemies.
+ */
 int calcHowManyRemain(enemy enemyArray[]);
 
 /**
-* @brief return random number in range [min, max)
-*/
+ * @brief Generates a random integer in the range [min, max).
+ *
+ * @param min Lower bound (inclusive).
+ * @param max Upper bound (exclusive).
+ * @return A random integer in the specified range.
+ */
 int randomNumberInRange(int min, int max);
 
 /**
- * @brief start game for one player
+ * @brief Starts the single‑player game mode.
  */
 void gameMode();
 
 /**
- * @brief writes the text character by character with a delay
- * @param Text text to write
+ * @brief Prints the given text character by character with a delay,
+ *        simulating a typewriter effect.
+ *
+ * @param Text The text to print.
  */
 void AIWriteText(const char *Text);
 
 /**
- * @brief checks and reduces the number of tokens
- * @param[in, out] tokens number of rokens
+ * @brief Checks the token count and reduces it if necessary.
+ *
+ * @param[in, out] tokens Pointer to the current number of tokens.
  */
 void checkTokens(int *tokens);
 
 /**
- * @brief ask quastion and always dint unnderstand this
- * @param[in, out] tokens number of tokens
+ * @brief Repeatedly asks a question until the user provides an understandable answer.
+ *
+ * @param[in, out] tokens Pointer to the token count (may be modified).
  */
 void infinityDontUnderstand(int *tokens);
 
 /**
- * @brief basic version of program
+ * @brief Runs the basic version of the program (without AI).
  */
 void basicProgramm();
 
 /**
- * @brief AI version of program
+ * @brief Runs the advanced version of the program with enhanced AI.
  */
 void AIUltraProgramm();
 
 /**
- * @brief start game for two player
+ * @brief Starts the two‑player game mode.
  */
 void gameTwoPlyerMode();
+
+// void basicCalc(); // commented out, not used
 
 #endif

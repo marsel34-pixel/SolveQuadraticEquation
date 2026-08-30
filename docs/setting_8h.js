@@ -3,6 +3,7 @@ var setting_8h =
     [ "testUnit", "structtest_unit.html", "structtest_unit" ],
     [ "enemy", "structenemy.html", "structenemy" ],
     [ "BaseColor", "setting_8h.html#a7bceb9c7a36790d873713f26e374cecf", null ],
+    [ "blueColor", "setting_8h.html#ab413c62670d3c0a43dc2c665c7bb2035", null ],
     [ "greenColor", "setting_8h.html#ac2ecf313abe85778678eb9ec2aa6809c", null ],
     [ "returnToStart", "setting_8h.html#a74a63fdcea5ddaaeed068a6df8599763", null ],
     [ "NumRoots", "setting_8h.html#afa5115866adc05f4d7b0fd1107c6be3f", [
@@ -18,6 +19,7 @@ var setting_8h =
     [ "NumLen", "setting_8h.html#a2671903bba16c6b5725fbaf6b86c353b", null ],
     [ "step", "setting_8h.html#a93b1a9df7d0c2b484a31a6dc8b3b383f", null ],
     [ "symbolForParabola", "setting_8h.html#a66c2141bad768840b100a404a7434d56", null ],
+    [ "symbolForSecondParabola", "setting_8h.html#a177053aafc0ed1d0eb23a353812c237f", null ],
     [ "X_SIZE", "setting_8h.html#aec09f2cc8c5c01db6ba353ca525f5b53", null ],
     [ "Y_SIZE", "setting_8h.html#a000dee12ca9658a2ebeb974b64afd3e3", null ],
     [ "ZeroX", "setting_8h.html#a5a43d214990d369eec73bc9ea5431ac1", null ],

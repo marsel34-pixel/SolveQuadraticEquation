@@ -15,5 +15,5 @@ var files_dup =
     [ "setting.h", "setting_8h.html", "setting_8h" ],
     [ "test.cpp", "test_8cpp.html", "test_8cpp" ],
     [ "test.h", "test_8h.html", "test_8h" ],
-    [ "vadingpizda.cpp", "vadingpizda_8cpp.html", null ]
+    [ "vadingpizda.cpp", "vadingpizda_8cpp.html", "vadingpizda_8cpp" ]
 ];

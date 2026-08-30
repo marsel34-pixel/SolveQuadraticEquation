@@ -6,5 +6,6 @@ var searchData=
   ['testarrayfromfile_3',['TestArrayFromFile',['../test_8cpp.html#ab8be74fd185591fd718880e095d66552',1,'test.cpp']]],
   ['testdata_4',['TestData',['../struct_test_data.html',1,'']]],
   ['testunit_5',['testUnit',['../structtest_unit.html',1,'']]],
-  ['tworoots_6',['TwoRoots',['../setting_8h.html#afa5115866adc05f4d7b0fd1107c6be3faa1733e118286438f67558a7231221b61',1,'setting.h']]]
+  ['twoplotquadratics_6',['TwoPlotQuadratics',['../output_system_8cpp.html#a6626fce57b86690dcb8cd75c03677573',1,'outputSystem.cpp']]],
+  ['tworoots_7',['TwoRoots',['../setting_8h.html#afa5115866adc05f4d7b0fd1107c6be3faa1733e118286438f67558a7231221b61',1,'setting.h']]]
 ];

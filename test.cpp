@@ -78,14 +78,14 @@ int RunTest(testUnit TestMat)
     if (!(nRoots == TestMat.nRoots && ((areDoubleEqual(x1, TestMat.x1) && areDoubleEqual(x2, TestMat.x2)) ||
                                        (areDoubleEqual(x2, TestMat.x1) && areDoubleEqual(x1, TestMat.x2)))))
     {
-        ErrorMesage(TestMat, nRoots, x1, x2);
+        ErrorMessage(TestMat, nRoots, x1, x2);
         return 1;
     }
     
     return 0;
 }
 
-int RunAllAvaiaibleTests()
+int RunAllAvailableTests()
 {
     testUnit TestArrayFromCode[] = { { 1, 2,  1,   1,        -1,  NAN        },
                                      { 1, -2, 1,   1,        1,   NAN        },
@@ -117,7 +117,7 @@ int RunAllAvaiaibleTests()
     return 0;
 }
 
-void ErrorMesage(testUnit TestMat, int nRoots, double x1, double x2)
+void ErrorMessage(testUnit TestMat, int nRoots, double x1, double x2)
 {
     printf("%sTest FAILED: a=%lg, b=%lg, c=%lg\n"
            "Expected x1=%lg, x2=%lg, nRoots=%d\n"

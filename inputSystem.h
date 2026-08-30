@@ -1,121 +1,137 @@
 #ifndef INPUT_SYSTEM_H
 #define INPUT_SYSTEM_H
 
-
-
 /**
-* @brief цикл пока не получится взять число из консоли
-* @param[out] a записыывается полученное значение
-*/
+ * @brief Reads a single double coefficient from the console, retrying until a valid number is entered.
+ * @param[out] a Pointer to store the read value.
+ */
 void readSingleCoeficient(double *a);
 
-
-
 /**
-* @brief ищет член для числа 
-*
-* @param[in] EquationStr анализируемая строка
-* @param startN индекс начала числа, для которого ищется член
-* @param startN индекс конца числа, для которого ищется член
-* @param[out] terWasFound был ли уже найден член
-* @param[out] foundPowerX степень найденного члена
-* @param[in] buffCoef указатель на значение числа, которое будут прибавляться одному из коэфициентов
-* @param side выбор направления проверки лево или право
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
-*/
+ * @brief Finds the power of x adjacent to a number in the equation string.
+ *
+ * Examines the vicinity of a number (from StartN to endN) to determine if an x-term
+ * (with or without exponent) is present. If found, records its power and the coefficient value.
+ *
+ * @param[in] EquationStr The equation string to analyze.
+ * @param[in] StartN Starting index of the number.
+ * @param[in] endN Ending index of the number.
+ * @param[out] termWasFound Set to true if an x-term is found next to the number.
+ * @param[out] foundPowerX The exponent of the found term (2 for x^2, 1 for x).
+ * @param[in] buffCoef Pointer to the numeric value of the number to be added.
+ * @param[in] side Direction: true for left side, false for right side.
+ * @retval 0 Success.
+ * @retval 1 Error while parsing the equation.
+ */
 int findPowerX(char *EquationStr, int StartN, int endN, bool *termWasFound, int *foundPowerX, double *buffCoef, bool side);
 
 /**
- * @brief Вспомогательная функция, ищет член слева по индексу
+ * @brief Helper: checks for an x-term to the left of the given index.
  *
+ * If a term is found, the index is advanced to skip the whole term, and its power is recorded.
  *
- * @param[in] EquationStr строка в которой ищется член
- * @param[in, out] IndexStrForCheck индекс который проверяют на член, в случае нахождения перескакивает на его конец
- * @param[out] foundPowerX записывает степень найденного члена
- * @param[out] xWasFound записывает был ли найден член
- *
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
+ * @param[in] EquationStr The equation string.
+ * @param[in,out] IndexStrForCheck On input, the position to check; on output, updated to point after the term if found.
+ * @param[out] foundPowerX The exponent of the found term (2 or 1).
+ * @param[out] xWasFound True if a term was found, false otherwise.
+ * @retval 0 Success.
+ * @retval 1 Parsing error.
  */
 int checkLeftForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
 
 /**
- * @brief Вспомогательная функция, ищет член справа по индексу
+ * @brief Helper: checks for an x-term to the right of the given index.
  *
+ * If a term is found, the index is advanced to skip the whole term, and its power is recorded.
  *
- * @param[in] EquationStr строка в которой ищется член
- * @param[in, out] IndexStrForCheck индекс который проверяют на член, в случае нахождения перескакивает на его конец
- * @param[out] foundPowerX записывает степень найденного члена
- * @param[out] xWasFound записывает был ли найден член
- *
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
+ * @param[in] EquationStr The equation string.
+ * @param[in,out] IndexStrForCheck On input, the position to check; on output, updated to point after the term if found.
+ * @param[out] foundPowerX The exponent of the found term (2 or 1).
+ * @param[out] xWasFound True if a term was found, false otherwise.
+ * @retval 0 Success.
+ * @retval 1 Parsing error.
  */
 int checkRightForPower(char *EquationStr, int *IndexStrForCheck, int *foundPowerX, bool *xWasFound);
 
 /**
-* @brief анализирует соседные для числа члены, и прибавляет нужное значение нужному коэфициенту
-*
-* @param[in] EquationStr анализируемая строка
-* @param startN индекс начала числа, для которого ищется член
-* @param startN индекс конца числа, для которого ищется член
-* @param[in] buffCoef указатель на значение числа, которое будут прибавляться одному из коэфициентов
-* @param[out] a записывается полученное значение
-* @param[out] b записывается полученное значение
-* @param[out] c записывается полученное значение
-*
-* 
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
-*/
+ * @brief Adds the number value to the appropriate coefficient based on the adjacent x-term.
+ *
+ * For a number located from startN to endN, this function checks for an x-term on either side.
+ * Based on the power of that term, it adds the number to:
+ *   - a (coefficient for x^2) if power == 2,
+ *   - b (coefficient for x)   if power == 1,
+ *   - c (constant term)       if no term is found.
+ *
+ * @param[in] EquationStr The equation string.
+ * @param[in] startN Starting index of the number.
+ * @param[in] endN Ending index of the number.
+ * @param[in] buffCoof Pointer to the numeric value to be added.
+ * @param[out] a Coefficient for x^2.
+ * @param[out] b Coefficient for x.
+ * @param[out] c Constant term.
+ * @retval 0 Success.
+ * @retval 1 Error while parsing.
+ */
 int setCoef(char *EquationStr, int startN, int endN, double *buffCoof, double *a, double *b, double *c);
 
 /**
-* @brief Ищет числа в строке и записывает их в в нужные коэфициенты, благодаря рядом стоящим членам
-*
-* @param[in] EquationStr анализируемая строка
-* @param[out] a записывается полученное значение
-* @param[out] b записывается полученное значение
-* @param[out] c записывается полученное значение
-*
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
-*/
+ * @brief Parses the equation string to extract coefficients a, b, and c.
+ *
+ * Scans the entire string for numbers, and for each number calls setCoef to add its value
+ * to the appropriate coefficient based on any adjacent x-terms. The resulting coefficients
+ * satisfy a*x^2 + b*x + c = 0.
+ *
+ * @param[in] EquationStr The equation string (e.g., "2x^2 + 3x - 5 = 0").
+ * @param[out] a Coefficient for x^2.
+ * @param[out] b Coefficient for x.
+ * @param[out] c Constant term.
+ * @retval 0 Success.
+ * @retval 1 Error (invalid format).
+ */
 int findCoefsFromStr(char *EquationStr, double *a, double *b, double *c);
 
 /**
-* @brief Читает пооочередно 3 коэфициента из консоли 
-* @param[out] a записывается полученное значение
-* @param[out] b записывается полученное значение
-* @param[out] c записывается полученное значение
-*/
+ * @brief Reads three coefficients from the console sequentially.
+ *
+ * Each coefficient is read using readSingleCoeficient. The user is expected to enter numbers
+ * separated by whitespace or newlines.
+ *
+ * @param[out] a First coefficient.
+ * @param[out] b Second coefficient.
+ * @param[out] c Third coefficient.
+ */
 void readCoefs(double *a, double *b, double *c);
 
 /**
-* @brief Читает уравнение из консоли и засовывает их в коэфициенты
-*
-* @param[out] a записывается полученное значение
-* @param[out] b записывается полученное значение
-* @param[out] c записывается полученное значение
-*
-* @retval 0 Все прошло успешно
-* @retval 1 Ошибка в чтении уравнения
-*/
+ * @brief Reads an entire equation line from the console and extracts the coefficients.
+ *
+ * The line is expected to contain a quadratic equation in the form "ax² + bx + c = 0".
+ * It then calls findCoefsFromStr to parse the coefficients.
+ *
+ * @param[out] a Coefficient for x^2.
+ * @param[out] b Coefficient for x.
+ * @param[out] c Constant term.
+ * @retval 0 Success.
+ * @retval 1 Parsing error (invalid equation format).
+ */
 int readCoeficientsFromEquation(double *a, double *b, double *c);
 
 /**
- * @brief Спрашивает Y/N 
- *  Будет работать пока не получит ответа
+ * @brief Asks a Y/N question and returns the answer.
  *
- * @param text текст вопросa
+ * Displays the given prompt and waits for a single character input. Repeats until a valid
+ * answer (Y/y or N/n) is given.
  *
- * @return если Y возвращает 1, если N то 0
+ * @param text The question prompt (e.g., "Do you want to continue? (Y/N): ").
+ * @return true if user answered Y or y, false if N or n.
  */
 bool askAboutChoise(const char *text);
 
 /**
- * @brief Очищает вывод до следуйщего "\n"
+ * @brief Clears the input buffer up to the next newline.
+ *
+ * Discards all characters from the standard input buffer until and including the next '\n'.
+ * Used to clean up after invalid input.
  */
 void clearInput();
 

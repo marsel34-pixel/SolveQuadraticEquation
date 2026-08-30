@@ -4,33 +4,36 @@
 #include "setting.h"
 
 /**
-* @brief read test from file and records in array 
+* @brief reads tests from file and stores them into the array
 *
-* @param[out] testArray array to record tests in
-* @return if read go normal size of testArray, else -1
+* @param[out] TestArray array to record tests in
+* @return returns the number of successfully read tests, or -1 on error
 */
 ssize_t ReadTestsUnitFromFile(testUnit *TestArray);
 
 /**
-* @brief read test from file and records in array 
+* @brief runs all tests from the given array
 *
-* @param[out] testArray array to record tests in
+* @param[in] TestMat array of test units to run
+* @param TestSize number of tests in the array
 */
 void RunAllTestsFromArray(testUnit *TestMat, size_t TestSize);
 
 /**
 * @brief print error message
 *
-* @param tesMat the test unit where the error occurred
-* @param nRoots, x1, x2 wrong test results
+* @param TestMat test unit where the error occurred
+* @param[in] nRoots  actual number of roots
+* @param[in] x1      first root (if exists)
+* @param[in] x2      second root (if exists)
 */
-void ErrorMesage(testUnit TestMat, int nRoots, double x1, double x2);
+void ErrorMessage(testUnit TestMat, int nRoots, double x1, double x2);
 
 /**
-* @brief run one test
+* @brief runs a single test unit
 *
-* @param tesMat what testing
-* @return 1 if test go wrong, else 0
+* @param testMat testMat test unit to be executed
+* @return returns 1 if the test fails, otherwise 0
 */
 int RunTest(struct testUnit TestMat);
 
@@ -38,6 +41,6 @@ int RunTest(struct testUnit TestMat);
 * @brief run all tests, from file and program
 * @return 1 if read from file go wrong, else 0
 */
-int RunAllAvaiaibleTests();
+int RunAllAvailableTests();
 
 #endif

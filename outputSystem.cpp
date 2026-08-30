@@ -7,9 +7,7 @@
 #include "outputSystem.h"
 #include "calculation.h"
 
-//char StaticPlotArray[Y_SIZE][X_SIZE] = {};
-
-
+// char StaticPlotArray[Y_SIZE][X_SIZE] = {};
 
 void printRoots(int nRoots, double x1, double x2)
 {
@@ -24,7 +22,7 @@ void printRoots(int nRoots, double x1, double x2)
         break;
 
     case TwoRoots:
-        printf("Two roots x1 = %lg, x2 = %lg\n", x1, x2); 
+        printf("Two roots x1 = %lg, x2 = %lg\n", x1, x2);
         break;
 
     case InfRoots:
@@ -47,16 +45,16 @@ void plotQuadratics(double a, double b, double c, double x1, double x2)
     for (double i = 0; i < X_SIZE; i += step)
     {
         calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
-        StaticPlotArray[yCoord][xCoord] = symbolForParabola; 
+        StaticPlotArray[yCoord][xCoord] = symbolForParabola;
     }
-    
-    DrawNumberOnPlot(StaticPlotArray, "x=", x1, roundInBounds(x1 + ZeroX,X_SIZE), ZeroY + 2);
-    DrawNumberOnPlot(StaticPlotArray, "x=", x2, roundInBounds(x2 + ZeroX,X_SIZE), ZeroY - 2);
+
+    DrawNumberOnPlot(StaticPlotArray, "x=", x1, roundInBounds(x1 + ZeroX, X_SIZE), ZeroY + 2);
+    DrawNumberOnPlot(StaticPlotArray, "x=", x2, roundInBounds(x2 + ZeroX, X_SIZE), ZeroY - 2);
 
     drawGraphicFromArray(StaticPlotArray);
 }
 
-int roundInBounds(double x, int board) 
+int roundInBounds(double x, int board)
 {
     if (x > 0 && x < board)
     {
@@ -74,9 +72,9 @@ void DrawNumberOnPlot(char StaticPlotArray[][X_SIZE], const char *TextBeforeNumb
     if (!isnan(NumberValue))
     {
         int lenTextToDraw = snprintf(buffer, sizeof(buffer), "%s%lg", TextBeforeNumber, NumberValue);
-        int indexDrawnLetters = 0; 
+        int indexDrawnLetters = 0;
 
-        for (int i = x - lenTextToDraw / 2; i < X_SIZE && buffer[indexDrawnLetters] != '\0'; i++) 
+        for (int i = x - lenTextToDraw / 2; i < X_SIZE && buffer[indexDrawnLetters] != '\0'; i++)
         {
             StaticPlotArray[y][i] = buffer[indexDrawnLetters];
             indexDrawnLetters++;
@@ -92,7 +90,15 @@ void drawGraphicFromArray(char StaticPlotArray[][X_SIZE])
         {
             if (StaticPlotArray[y][x] == symbolForParabola)
             {
-                printf("greenColor%cBaseColor", symbolForParabola);
+                printf(greenColor);
+                printf("%c", symbolForParabola);
+                printf(BaseColor);
+            }
+            else if (StaticPlotArray[y][x] == symbolForSecondParabola)
+            {
+                printf(blueColor);
+                printf("%c", symbolForSecondParabola);
+                printf(BaseColor);
             }
             else
             {
@@ -120,23 +126,23 @@ void drawAnimationGraph(double a, double b, double c)
         {
             continue;
         }
-        
-        toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForParabola; 
-        
+
+        toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForParabola;
+
         printf(returnToStart);
-        
+
         fwrite(toDraw, sizeof(toDraw[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
         Sleep(20);
-    }    
+    }
 }
 
 void StaticPlotInit(char StaticPlotArray[][X_SIZE])
 {
-    for (int y = 0; y < Y_SIZE; y++)  
+    for (int y = 0; y < Y_SIZE; y++)
     {
         for (int x = 0; x < X_SIZE; x++)
         {
-           StaticPlotArray[y][x] = ' ';
+            StaticPlotArray[y][x] = ' ';
         }
     }
 
@@ -148,16 +154,16 @@ void StaticPlotInit(char StaticPlotArray[][X_SIZE])
     for (int i = 0; i < Y_SIZE; i++)
     {
         StaticPlotArray[i][ZeroX] = '|';
-    } 
+    }
 }
 
 void animationPlotInit(char *toDraw)
 {
-    for (int y = 0; y < Y_SIZE + 1; y++)  
+    for (int y = 0; y < Y_SIZE + 1; y++)
     {
         for (int x = 0; x < X_SIZE + 1; x++)
         {
-           toDraw[GetIndexFor1dArrayFromXandY(x, y)] = ' ';
+            toDraw[GetIndexFor1dArrayFromXandY(x, y)] = ' ';
         }
     }
 
@@ -174,7 +180,7 @@ void animationPlotInit(char *toDraw)
     for (int i = 0; i < Y_SIZE; i++)
     {
         toDraw[GetIndexFor1dArrayFromXandY(ZeroX, i)] = '|';
-    } 
+    }
 }
 
 void calcParabolaPoints(int *xCoord, int *yCoord, double x, double a, double b, double c)
@@ -207,7 +213,7 @@ void gameStep(double a, double b, double c, enemy enemyArray[])
     for (double x = 0; x < X_SIZE; x += step)
     {
         calcParabolaPoints(&xCoord, &yCoord, x, a, b, c);
-        
+
         int NowIndex = GetIndexFor1dArrayFromXandY(xCoord, yCoord);
         if (gameScreen[NowIndex] == symbolForParabola || yCoord == 0)
         {
@@ -223,12 +229,12 @@ void gameStep(double a, double b, double c, enemy enemyArray[])
             makePlotBounce(&a, &b, &c, yCoord);
         }
 
-        gameScreen[NowIndex] = symbolForParabola; 
-        
+        gameScreen[NowIndex] = symbolForParabola;
+
         printf(returnToStart);
         fwrite(gameScreen, sizeof(gameScreen[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
         Sleep(20);
-    }    
+    }
 }
 
 void setEnemy(char gameScreen[], char setSymbol, enemy Enemy)
@@ -246,7 +252,7 @@ int findNearestEnemyToPoint(enemy enemyArray[], int x, int y)
 
     for (int j = 0; j < numEnemy; j++)
     {
-        if(enemyArray[j].isAlive)
+        if (enemyArray[j].isAlive)
         {
             double thisDist = (x - enemyArray[j].x) * (x - enemyArray[j].x) + (y - enemyArray[j].y) * (y - enemyArray[j].y);
             if (thisDist < minDistToEnemy)
@@ -260,12 +266,12 @@ int findNearestEnemyToPoint(enemy enemyArray[], int x, int y)
     return indexNearestEnemy;
 }
 
-void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], enemy secondPlayerGuys[], 
-                        char firstPlayerAttackSymbol, char secondPlayerAttackSymbol, char firstPlayerGuysSymbol, char secondPlayerGuysSymbol, bool isFirstStep)
+void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], enemy secondPlayerGuys[],
+                       char firstPlayerAttackSymbol, char secondPlayerAttackSymbol, char firstPlayerGuysSymbol, char secondPlayerGuysSymbol, bool isFirstStep)
 {
     char gameScreen[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
     int xCoord = 0, yCoord = 0;
-    
+
     animationPlotInit(gameScreen);
 
     for (int i = 0; i < numEnemy; i++)
@@ -286,8 +292,7 @@ void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], en
     for (double i = 0; i < X_SIZE; i += step)
     {
         calcParabolaPoints(&xCoord, &yCoord, i, a, b, c);
-        
-        
+
         int NowIndex = GetIndexFor1dArrayFromXandY(xCoord, yCoord);
         if (gameScreen[NowIndex] == (isFirstStep ? firstPlayerAttackSymbol : secondPlayerAttackSymbol) || yCoord == 0)
         {
@@ -309,14 +314,14 @@ void gameStepTwoPlayer(double a, double b, double c, enemy firstPlayerGuys[], en
             secondPlayerGuys[indexNearestEnemy].isAlive = 0;
             makePlotBounce(&a, &b, &c, yCoord);
         }
-        
-        gameScreen[NowIndex] = isFirstStep ? firstPlayerAttackSymbol : secondPlayerAttackSymbol; 
-        
+
+        gameScreen[NowIndex] = isFirstStep ? firstPlayerAttackSymbol : secondPlayerAttackSymbol;
+
         printf(returnToStart);
         fwrite(gameScreen, sizeof(gameScreen[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
-        //Beep(-(yCoord-ZeroY)*150,20);
+        // Beep(-(yCoord-ZeroY)*150,20);
         Sleep(20);
-    }    
+    }
 }
 
 void makePlotBounce(double *a, double *b, double *c, int yCoord)
@@ -324,5 +329,74 @@ void makePlotBounce(double *a, double *b, double *c, int yCoord)
     *a = -*a;
     *c = -*c;
     *b = -*b;
-    *c += 2*(yCoord-ZeroY);
+    *c += 2 * (yCoord - ZeroY);
+}
+
+void drawAnimationTwoGraph(double a1, double b1, double c1, double a2, double b2, double c2)
+{
+    char toDraw[(Y_SIZE + 1) * (X_SIZE + 1) + 1] = {};
+
+    animationPlotInit(toDraw);
+
+    int xCoord = 0;
+    int yCoord = 0;
+
+    for (double x = 0; x < X_SIZE; x += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, x, a1, b1, c1);
+
+        if (toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] == symbolForParabola || yCoord == 0)
+        {
+            continue;
+        }
+
+        toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForParabola;
+
+        printf(returnToStart);
+
+        fwrite(toDraw, sizeof(toDraw[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
+        Sleep(20);
+    }
+
+    for (double x = 0; x < X_SIZE; x += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, x, a2, b2, c2);
+
+        if (toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] == symbolForSecondParabola || yCoord == 0)
+        {
+            continue;
+        }
+
+        toDraw[GetIndexFor1dArrayFromXandY(xCoord, yCoord)] = symbolForSecondParabola;
+
+        printf(returnToStart);
+
+        fwrite(toDraw, sizeof(toDraw[0]), (Y_SIZE + 1) * X_SIZE + 1, stdout);
+        Sleep(20);
+    }
+}
+
+void TwoPlotQuadratics(double a1, double b1, double c1, double a2, double b2, double c2, double x1, double x2)
+{
+    char StaticPlotArray[Y_SIZE][X_SIZE] = {};
+    StaticPlotInit(StaticPlotArray);
+
+    int xCoord = 0;
+    int yCoord = 0;
+
+    for (double i = 0; i < X_SIZE; i += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, i, a1, b1, c1);
+        StaticPlotArray[yCoord][xCoord] = symbolForParabola;
+    }
+
+    for (double i = 0; i < X_SIZE; i += step)
+    {
+        calcParabolaPoints(&xCoord, &yCoord, i, a2, b2, c2);
+        StaticPlotArray[yCoord][xCoord] = symbolForSecondParabola;
+    }
+    DrawNumberOnPlot(StaticPlotArray, "x=", x1, roundInBounds(x1 + ZeroX, X_SIZE), roundInBounds(x1 * x1 * a1 + x1 * b1 + c1 + ZeroY - 2, Y_SIZE));
+    DrawNumberOnPlot(StaticPlotArray, "x=", x2, roundInBounds(x2 + ZeroX, X_SIZE), roundInBounds(x2 * x2 * a2 + x2 * b2 + c2 + ZeroY + 2, Y_SIZE));
+
+    drawGraphicFromArray(StaticPlotArray);
 }
